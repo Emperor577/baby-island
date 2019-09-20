@@ -44,6 +44,11 @@
                       'icon' => 'fa fa-users',
                       'name' => 'Наш персонал'
                   ]) @endcomponent
+                @component('admin.aside.menu-item',[
+                    'link' => route('admin.price.index'),
+                    'icon' => 'fa fa-users',
+                    'name' => 'Порайст лист'
+                ]) @endcomponent
 
             </ul>
         </div><!-- /.navbar-collapse -->

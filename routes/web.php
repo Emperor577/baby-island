@@ -96,6 +96,20 @@ Route::group([
         Route::delete('/edit/image/delete/{id}', 'StaffController@imageDestroy');
     });
 
+    Route::group([
+        'prefix' => 'price',
+        'namespace' => 'Dashboard',
+        'as' => 'price.'
+    ], function () {
+        Route::get('/', 'PriceController@index')->name('index');
+        Route::get('/create', 'PriceController@create')->name('create');
+        Route::post('/store', 'PriceController@store')->name('store');
+        Route::get('/edit/{id}', 'PriceController@edit')->name('edit');
+        Route::put('/update/{id}', 'PriceController@update')->name('update');
+        Route::delete('/delete/{id}', 'PriceController@destroy')->name('delete');
+        Route::delete('/edit/image/delete/{id}', 'PriceController@imageDestroy');
+    });
+
 });
 
 Auth::routes();

@@ -293,7 +293,6 @@
                     <p>Lorem ipsum dolor.................................<b>50 000</b> So'm</p>
                 </div>
             </div>
-
             <div class="price-2">
                 <div class="price-logo">
                     <img src="{{ asset("front/images/logo.png") }}" alt="">
