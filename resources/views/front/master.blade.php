@@ -57,15 +57,22 @@
                                 <div class="rd-navbar-nav-wrap">
                                     <!-- RD Navbar Nav-->
                                     <ul class="rd-navbar-nav">
-                                        <li class="rd-nav-item active"><a class="rd-nav-link" href="#home">Home</a>
+                                        <li class="rd-nav-item active"><a class="rd-nav-link" href="#home">Главный</a>
                                         </li>
-                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#about-us">About us</a>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#about-us">О нас</a>
                                         </li>
-                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#news">News</a>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#uslugi">Услуги</a>
                                         </li>
-                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#pages">Pages</a>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#pages">Галерея</a>
                                         </li>
-                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#contact-us">Contact us</a>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#Price">Цена</a>
+                                        </li>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#contact-us">Контакты</a>
+                                        </li>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#">Ру</a>
+                                          <ul class="rd-menu rd-navbar-dropdown">
+                                            <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="#">Uz</a></li>
+                                          </ul>
                                         </li>
                                     </ul>
                                 </div>
@@ -170,6 +177,45 @@
             </div>
         </div>
     </section>
+    <section class="well-4 bg-default novi-background bg-cover uslugi" id="uslugi">
+      <div class="container center">
+        <h2>Наши услуги</h2>
+        <hr>
+        <h4>Read the latest news and updates from Happy Kids.</h4>
+        <div class="row row-30 offset-custom-2">
+          <article class="col-sm-6 col-md-4"><a class="post" href="blog-post.html"><img src="{{ asset("front/images/home-7-370x453.jpg") }}" alt="" width="370" height="453"/>
+              <div class="post_cnt">
+                <h3>How Testing Buoyancy Can Build Babies’ Skills</h3>
+                <time datetime="2015-04-14">April 10, 2018</time>
+              </div></a></article>
+          <article class="col-sm-6 col-md-4"><a class="post" href="blog-post.html"><img src="{{ asset("front/images/home-8-370x453.jpg") }}" alt="" width="370" height="453"/>
+              <div class="post_cnt">
+                <h3>Preschool Science Activities Make Kids Independent Thinkers</h3>
+                <time datetime="2015-04-14">April 12, 2018</time>
+              </div></a></article>
+          <article class="col-sm-6 col-md-4"><a class="post" href="blog-post.html"><img src="{{ asset("front/images/home-9-370x453.jpg") }}" alt="" width="370" height="453"/>
+              <div class="post_cnt">
+                <h3>Sensory Counting Games for Kids Blend Fun and Education</h3>
+                <time datetime="2015-04-14">April 14, 2018</time>
+              </div></a></article>
+          <article class="col-sm-6 col-md-4"><a class="post" href="blog-post.html"><img src="{{ asset("front/images/home-10-370x453.jpg") }}" alt="" width="370" height="453"/>
+              <div class="post_cnt">
+                <h3>The Road to Positive Parenting: Alternatives to "No"</h3>
+                <time datetime="2015-04-14">April 16, 2018</time>
+              </div></a></article>
+          <article class="col-sm-6 col-md-4"><a class="post" href="blog-post.html"><img src="{{ asset("front/images/home-11-370x453.jpg") }}" alt="" width="370" height="453"/>
+              <div class="post_cnt">
+                <h3>Teach Good Decision-Making Skills and Say Goodbye to Power Struggles</h3>
+                <time datetime="2015-04-14">April 18, 2018</time>
+              </div></a></article>
+          <article class="col-sm-6 col-md-4"><a class="post" href="blog-post.html"><img src="{{ asset("front/images/home-12-370x453.jpg") }}" alt="" width="370" height="453"/>
+              <div class="post_cnt">
+                <h3>Raise a Grateful Child and Watch Them Become a Caring Adult</h3>
+                <time datetime="2015-04-14">April 20, 2018</time>
+              </div></a></article>
+        </div>
+      </div>
+    </section>
     <section id="news" class="well-2 center bg-vide novi-vide" data-vide-bg="{{ asset("front/video/video-bg") }}" data-vide-options="posterType: jpg">
         <div class="vide_cnt">
             <div class="container">
@@ -273,7 +319,7 @@
             </div>
         </div>
     </section>
-    <section class="price-section">
+    <section class="price-section" id="Price">
         <h2>Price List</h2>
         <div class="price-content">
             <div class="price-1">
