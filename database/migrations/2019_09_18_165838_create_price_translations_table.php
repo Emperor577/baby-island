@@ -17,8 +17,7 @@ class CreatePriceTranslationsTable extends Migration
             $table->Increments('id');
             $table->integer('price_id')->unsigned();
             $table->string('title');
-            $table->string('price_count');
-            $table->text('price_name');
+            $table->text('price');
             $table->string('locale')->index();
             $table->unique(['price_id','locale']);
             $table->foreign('price_id')->references('id')->on('prices')->onDelete('cascade');

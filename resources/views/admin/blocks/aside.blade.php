@@ -13,12 +13,6 @@
                 @component('admin.aside.menu-title', [
                     'name' => 'Elements'
                 ]) @endcomponent
-
-                @component('admin.aside.menu-item', [
-                    'link' => '',
-                    'icon' => 'fa fa-bars',
-                    'name' => 'Меню',
-                ]) @endcomponent
                 @component('admin.aside.menu-item', [
                     'link' => route('admin.sliders.index'),
                     'icon' => 'fa fa-television',
@@ -46,7 +40,7 @@
                   ]) @endcomponent
                 @component('admin.aside.menu-item',[
                     'link' => route('admin.price.index'),
-                    'icon' => 'fa fa-users',
+                    'icon' => 'fa fa-money',
                     'name' => 'Порайст лист'
                 ]) @endcomponent
 

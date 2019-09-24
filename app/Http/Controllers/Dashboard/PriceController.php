@@ -6,6 +6,8 @@ use App\Models\Price;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\Price\Contracts\PriceService as PriceServiceInterface;
+use Illuminate\Support\Facades\Storage;
+
 class PriceController extends Controller
 {
     /**
@@ -49,6 +51,7 @@ class PriceController extends Controller
         ]);
 
         $priceService->store($request->all());
+        return redirect()->route('admin.price.index');
     }
 
     /**
@@ -70,19 +73,30 @@ class PriceController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.price.edit', ['price' => Price::find($id)]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
+     * @param PriceServiceInterface $priceService
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, PriceServiceInterface $priceService)
     {
-        //
+        $this->validate($request, [
+            'title_ru' => 'required',
+            'title_uz' => 'required',
+            'price_count_ru' => 'required',
+            'price_count_uz' => 'required',
+            'price_title_ru' => 'required',
+            'price_title_uz' => 'required',
+        ]);
+        $priceService->update($request->all(), $id);
+
+        return redirect()->route('admin.price.index');
     }
 
     /**
@@ -93,6 +107,18 @@ class PriceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $price = Price::find($id);
+        Storage::disk('public')->delete('price/'.$price->photo);
+        $price->delete();
+
+        return redirect()->route('admin.price.index');
+    }
+
+    public function imageDestroy($id)
+    {
+        $price = Price::find($id);
+        Storage::disk('public')->delete('price/'.$price->photo);
+        $price->photo = '';
+        $price->save();
     }
 }

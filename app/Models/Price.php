@@ -8,6 +8,6 @@ class Price extends Model
 {
     use \Dimsav\Translatable\Translatable;
 
-    public $translatedAttributes = ['title', 'price_name', 'price_count'];
+    public $translatedAttributes = ['title', 'price'];
     protected $fillable = ['photo'];
 }
