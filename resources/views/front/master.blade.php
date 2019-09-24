@@ -48,7 +48,6 @@
                                 <!-- RD Navbar Brand-->
                                 <div class="rd-navbar-brand">
                                     <a class="brand" href="index.html">
-                                        <img class="brand-logo-dark" src="{{ asset("front/images/logo-default-482x134.png") }}" alt="" width="482" height="134"/>
                                         <img  src="{{ asset("front/images/logo.png") }}" alt="" /> <span>Babby island</span>
                                     </a>
                                 </div>
@@ -57,22 +56,30 @@
                                 <div class="rd-navbar-nav-wrap">
                                     <!-- RD Navbar Nav-->
                                     <ul class="rd-navbar-nav">
-                                        <li class="rd-nav-item active"><a class="rd-nav-link" href="#home">Главный</a>
+                                        <li class="rd-nav-item active"><a class="rd-nav-link" href="#home">@lang('translate.home')</a>
                                         </li>
-                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#about-us">О нас</a>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#about-us">@lang('translate.about-us')</a>
                                         </li>
-                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#uslugi">Услуги</a>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#uslugi">@lang('translate.service')</a>
                                         </li>
-                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#pages">Галерея</a>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#pages">@lang('translate.gallery')</a>
                                         </li>
-                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#Price">Цена</a>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#Price">@lang('translate.price')</a>
                                         </li>
-                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#contact-us">Контакты</a>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#contact-us">@lang('translate.contact')</a>
                                         </li>
-                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#">Ру</a>
-                                          <ul class="rd-menu rd-navbar-dropdown">
-                                            <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="#">Uz</a></li>
-                                          </ul>
+                                        <li class="rd-nav-item">
+                                            @if($locale === 'ru')
+                                            <a class="rd-nav-link" href="{{ route('locale', "ru") }}">Ру</a>
+                                            <ul class="rd-menu rd-navbar-dropdown">
+                                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{{ route('locale', "uz") }}">Uz</a></li>
+                                            </ul>
+                                            @elseif($locale === 'uz')
+                                            <a class="rd-nav-link" href="{{ route('locale', "uz") }}">Uz</a>
+                                            <ul class="rd-menu rd-navbar-dropdown">
+                                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{{ route('locale', "ru") }}">Ру</a></li>
+                                            </ul>
+                                            @endif
                                         </li>
                                     </ul>
                                 </div>
@@ -84,51 +91,21 @@
         </header>
         <div id="home"  class="section swiper-container swiper-slider swiper-slider-1" data-loop="true" data-autoplay="5000" data-simulate-touch="false">
             <div class="swiper-wrapper text-center">
-                <div class="swiper-slide context-dark" data-slide-bg="{{ asset("front/images/page-1_slide01.jpg") }}">
+                @foreach($sliders as $slider)
+                <div class="swiper-slide context-dark" data-slide-bg="{{ asset("storage/slider/".$slider->photo) }}">
                     <div class="swiper-slide-caption section-md">
                         <div class="container">
                             <div class="row row-fix justify-content-center">
                                 <div class="col-md-11 col-lg-9 col-xxl-8">
-                                    <h2 data-caption-animate="fadeInUp" data-caption-delay="100">Our Teaching</h2>
+                                    <h2 data-caption-animate="fadeInUp" data-caption-delay="100">{{ $slider->translate($locale)->title }}</h2>
                                     <hr>
-                                    <h4 class="lead" data-caption-animate="fadeInUp" data-caption-delay="250">Providing quality teaching for children of any age.</h4>
-                                    <div class="button-group" data-caption-animate="fadeInUp" data-caption-delay="450">
-                                        <a class="button button-default button-lg" href="about-us.html">Read more</a>
-                                        <a class="button button-2 button-lg" href="#">Join us</a>
-                                    </div>
+                                    <h4 class="lead" data-caption-animate="fadeInUp" data-caption-delay="250">{{ $slider->translate($locale)->text }}</h4>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide context-dark" data-slide-bg="{{ asset("front/images/page-1_slide02.jpg") }}">
-                    <div class="swiper-slide-caption section-md">
-                        <div class="container">
-                            <div class="row row-fix justify-content-center">
-                                <div class="col-md-11 col-lg-9 col-xxl-8">
-                                    <h2 data-caption-animate="fadeInUp" data-caption-delay="100">What We Do</h2>
-                                    <hr>
-                                    <h4 class="lead" data-caption-animate="fadeInUp" data-caption-delay="250">We teach and care about your children every day.</h4>
-                                    <div class="button-group" data-caption-animate="fadeInUp" data-caption-delay="450"><a class="button button-default button-lg" href="about-us.html">Read more</a><a class="button button-2 button-lg" href="#">Join us</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide context-dark" data-slide-bg="{{ asset("front/images/page-1_slide03.jpg") }}">
-                    <div class="swiper-slide-caption section-md">
-                        <div class="container">
-                            <div class="row row-fix justify-content-center">
-                                <div class="col-md-11 col-lg-9 col-xxl-8">
-                                    <h2 data-caption-animate="fadeInUp" data-caption-delay="100">Our Mission</h2>
-                                    <hr>
-                                    <h4 class="lead" data-caption-animate="fadeInUp" data-caption-delay="250">Emphasizing individual growth for children by promoting a caring environment.</h4>
-                                    <div class="button-group" data-caption-animate="fadeInUp" data-caption-delay="450"><a class="button button-default button-lg" href="about-us.html">Read more</a><a class="button button-2 button-lg" href="#">Join us</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <!-- Swiper Navigation-->
             <div class="swiper-navigation">

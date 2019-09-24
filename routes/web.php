@@ -11,10 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('front.master');
-});
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
 
+Route::get('/', 'Page\\MasterController@index')->name('home');
+Route::get('/locale/{locale}', function ($locale){
+
+    App::setLocale($locale);
+
+    Session::put('locale',$locale);
+
+    return redirect()->back();
+
+})->name('locale');
 
 Route::group([
    'prefix' => 'admin',
@@ -114,8 +123,3 @@ Route::group([
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
