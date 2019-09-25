@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers\Page;
 
+use App\Models\AboutUs;
+use App\Models\Gallery;
+use App\Models\Price;
 use App\Models\Slider;
+use App\Models\Staff;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\App;
@@ -25,7 +30,13 @@ class MasterController extends Controller
             $locale = App::getLocale();
         }
         $sliders = Slider::all();
-        return view('front.master', compact('sliders','locale'));
+        $about_us = AboutUs::all();
+        $testimonials = Testimonial::all();
+        $gallery = Gallery::all();
+        $staff = Staff::all();
+        $prices= Price::all();
+        return view('front.master',
+            compact('sliders','locale', 'about_us', 'testimonials','gallery', 'staff', 'prices'));
     }
 
     /**

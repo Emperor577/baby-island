@@ -14,4 +14,7 @@ return [
     'gallery' => 'Галерея',
     'price' => 'Цена',
     'contact' => 'Контакты',
+    'testimonials' => 'Отзывы',
+    'test_desc' => 'Вот что говорят родители наших детей о Baby Island.',
+    'staff' => 'НАШ ПЕРСОНАЛ'
 ];

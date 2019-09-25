@@ -121,39 +121,72 @@
     CONTENT
     ========================================================
     -->
-    <section id="about-us" class="novi-section">
-        <div class="bg-aside bg-aside-left center">
-            <div class="img"><img src="{{ asset("front/images/home-1-1025x664.jpg") }}" alt="" width="1025" height="664"/>
+    <?php $i = 0; ?>
+    @if(count($about_us) > 0)
+        @foreach($about_us as $value)
+            @if($i%2 == 0)
+            <section id="about-us" class="novi-section">
+                <div class="bg-aside bg-aside-left center">
+                    <div class="img">
+                        <img src="{{ asset("storage/about-us/".$value->photo) }}" alt="" width="1025" height="664"/>
+                    </div>
+                    <div class="cnt-block well-1 novi-background">
+                        {!! $value->translate($locale)->text !!}
+                    </div>
+                </div>
+            </section>
+                <?php $i++ ?>
+            @else
+            <section class="novi-section" data-preset='{"title":"Content box 2","category":"content box","reload":false,"id":"content-box-2"}'>
+                    <div class="bg-aside bg-aside-right center">
+                        <div class="img">
+                            <img src="{{ asset("storage/about-us/".$value->photo) }}" alt="" width="1025" height="664"/>
+                        </div>
+                        <div class="cnt-block well-1 novi-background">
+                            {!! $value->translate($locale)->text !!}
+                        </div>
+                    </div>
+                </section>
+                <?php $i++ ?>
+            @endif
+        @endforeach
+    @else
+        <section id="about-us" class="novi-section">
+            <div class="bg-aside bg-aside-left center">
+                <div class="img"><img src="{{ asset("front/images/home-1-1025x664.jpg") }}" alt="" width="1025" height="664"/>
+                </div>
+                <div class="cnt-block well-1 novi-background">
+                    <h2>Who we are</h2>
+                    <hr>
+                    <h4>We are a network of nursery centers providing learning and childcare to 100+ children and support for their families.</h4><a class="button button-default" href="about-us.html">Read more</a>
+                </div>
             </div>
-            <div class="cnt-block well-1 novi-background">
-                <h2>Who we are</h2>
-                <hr>
-                <h4>We are a network of nursery centers providing learning and childcare to 100+ children and support for their families.</h4><a class="button button-default" href="about-us.html">Read more</a>
+        </section>
+        <section class="novi-section" data-preset='{"title":"Content box 2","category":"content box","reload":false,"id":"content-box-2"}'>
+            <div class="bg-aside bg-aside-right center">
+                <div class="img"><img src="{{ asset("front/images/home-2-1025x664.jpg") }}" alt="" width="1025" height="664"/>
+                </div>
+                <div class="cnt-block well-1 novi-background">
+                    <h2>Our values</h2>
+                    <hr>
+                    <h4>Beauty, growth, development, and happiness are the foundation we use to guide our daily interactions and decision-making.</h4><a class="button button-default" href="about-us.html">Read more</a>
+                </div>
             </div>
-        </div>
-    </section>
-    <section class="novi-section" data-preset='{"title":"Content box 2","category":"content box","reload":false,"id":"content-box-2"}'>
-        <div class="bg-aside bg-aside-right center">
-            <div class="img"><img src="{{ asset("front/images/home-2-1025x664.jpg") }}" alt="" width="1025" height="664"/>
+        </section>
+        <section class="novi-section">
+            <div class="bg-aside bg-aside-left center">
+                <div class="img"><img src="{{ asset("front/images/home-3-1025x664.jpg") }}" alt="" width="1025" height="664"/>
+                </div>
+                <div class="cnt-block well-1 novi-background">
+                    <h2>Why us?</h2>
+                    <hr>
+                    <h4>Discover why hundreds of families all over the USA pick our nursery center for their children.</h4><a class="button button-default" href="about-us.html">Read more</a>
+                </div>
             </div>
-            <div class="cnt-block well-1 novi-background">
-                <h2>Our values</h2>
-                <hr>
-                <h4>Beauty, growth, development, and happiness are the foundation we use to guide our daily interactions and decision-making.</h4><a class="button button-default" href="about-us.html">Read more</a>
-            </div>
-        </div>
-    </section>
-    <section class="novi-section">
-        <div class="bg-aside bg-aside-left center">
-            <div class="img"><img src="{{ asset("front/images/home-3-1025x664.jpg") }}" alt="" width="1025" height="664"/>
-            </div>
-            <div class="cnt-block well-1 novi-background">
-                <h2>Why us?</h2>
-                <hr>
-                <h4>Discover why hundreds of families all over the USA pick our nursery center for their children.</h4><a class="button button-default" href="about-us.html">Read more</a>
-            </div>
-        </div>
-    </section>
+        </section>
+    @endif
+
+
     <section class="well-4 bg-default novi-background bg-cover uslugi" id="uslugi">
       <div class="container center">
         <h2>Наши услуги</h2>
@@ -205,12 +238,27 @@
     </section>
     <section id="pages" class="well-3 bg-pattern center novi-background bg-cover">
         <div class="container">
-            <h2>Testimonials</h2>
+            <h2>@lang('translate.testimonials')</h2>
             <hr>
-            <h4>Here's what our children’s parents have to say about Happy Kids.</h4>
+            <h4>@lang('translate.test_desc')</h4>
             <div class="row row-fix justify-content-center offset-custom-1">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="owl-carousel" data-items="1" data-dots="false" data-nav="true" data-stage-padding="0" data-loop="true" data-margin="30" data-mouse-drag="false">
+                        @if(count($testimonials) > 0)
+                            @foreach($testimonials as $testimonial)
+                                <div class="item">
+                                    <blockquote>
+                                        <img src="{{ asset("storage/testimonial/".$testimonial->photo) }}" alt="" width="204" height="204"/>
+                                        <p>
+                                            <cite>{{ $testimonial->translate($locale)->name }}</cite>
+                                        </p>
+                                        <p>
+                                            {!! $testimonial->translate($locale)->description !!}
+                                        </p>
+                                    </blockquote>
+                                </div>
+                            @endforeach
+                        @else
                         <div class="item">
                             <blockquote><img src="{{ asset("front/images/home-04-204x204.jpg") }}" alt="" width="204" height="204"/>
                                 <p>
@@ -241,6 +289,7 @@
                                 </p><a class="button button-default" href="#">Read more</a>
                             </blockquote>
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -250,13 +299,64 @@
         <div class="thumb-toggle" data-custom-toggle=".gallery"></div>
         <div class="container-fluid" data-lightgallery="group">
             <div class="row row-30">
-                <div class="col-sm-6 col-md-3"><a class="thumb" href="{{ asset("front/images/gallery-01_original.jpg") }}" data-lightgallery="item"><img src="{{ asset("front/images/gallery-01-513x513.jpg") }}" alt="" width="513" height="513"/><span class="thumb_overlay novi-background"><span class="thumb_cnt"><span class="thumb-icon novi-icon fl-line-ui-heart369"></span><span>Committed Childcare</span></span></span></a>
+                @if(count($gallery) > 0)
+                    @foreach($gallery as $value)
+                        <div class="col-sm-6 col-md-3">
+                            <a class="thumb" href="{{ asset("storage/gallery/".$value->photo) }}" data-lightgallery="item">
+                                <img src="{{ asset("storage/gallery/".$value->photo) }}" alt="" width="513" height="513"/>
+                                <span class="thumb_overlay novi-background">
+                                    <span class="thumb_cnt">
+                                        <span class="thumb-icon novi-icon fl-line-ui-heart369"></span>
+                                        <span>{{ $value->translate($locale)->title }}</span>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                    @endforeach
+                @else
+                <div class="col-sm-6 col-md-3">
+                    <a class="thumb" href="{{ asset("front/images/gallery-01_original.jpg") }}" data-lightgallery="item">
+                        <img src="{{ asset("front/images/gallery-01-513x513.jpg") }}" alt="" width="513" height="513"/>
+                        <span class="thumb_overlay novi-background">
+                            <span class="thumb_cnt">
+                                <span class="thumb-icon novi-icon fl-line-ui-heart369"></span>
+                                <span>Committed Childcare</span>
+                            </span>
+                        </span>
+                    </a>
                 </div>
-                <div class="col-sm-6 col-md-3"><a class="thumb" href="{{ asset("front/images/gallery-02_original.jpg") }}" data-lightgallery="item"><img src="{{ asset("front/images/gallery-02-513x513.jpg") }}" alt="" width="513" height="513"/><span class="thumb_overlay novi-background"><span class="thumb_cnt"><span class="thumb-icon novi-icon fl-line-ui-heart369"></span><span>Qualified Teachers</span></span></span></a>
+                <div class="col-sm-6 col-md-3">
+                    <a class="thumb" href="{{ asset("front/images/gallery-02_original.jpg") }}" data-lightgallery="item">
+                        <img src="{{ asset("front/images/gallery-02-513x513.jpg") }}" alt="" width="513" height="513"/>
+                        <span class="thumb_overlay novi-background">
+                            <span class="thumb_cnt">
+                                <span class="thumb-icon novi-icon fl-line-ui-heart369"></span>
+                                <span>Qualified Teachers</span>
+                            </span>
+                        </span>
+                    </a>
                 </div>
-                <div class="col-sm-6 col-md-3"><a class="thumb" href="{{ asset("front/images/gallery-03_original.jpg") }}" data-lightgallery="item"><img src="{{ asset("front/images/gallery-03-513x513.jpg") }}" alt="" width="513" height="513"/><span class="thumb_overlay novi-background"><span class="thumb_cnt"><span class="thumb-icon novi-icon fl-line-ui-heart369"></span><span>Variety of Programs</span></span></span></a>
+                <div class="col-sm-6 col-md-3">
+                    <a class="thumb" href="{{ asset("front/images/gallery-03_original.jpg") }}" data-lightgallery="item">
+                        <img src="{{ asset("front/images/gallery-03-513x513.jpg") }}" alt="" width="513" height="513"/>
+                        <span class="thumb_overlay novi-background">
+                            <span class="thumb_cnt">
+                                <span class="thumb-icon novi-icon fl-line-ui-heart369"></span>
+                                <span>Variety of Programs</span>
+                            </span>
+                        </span>
+                    </a>
                 </div>
-                <div class="col-sm-6 col-md-3"><a class="thumb" href="{{ asset("front/images/gallery-04_original.jpg") }}" data-lightgallery="item"><img src="{{ asset("front/images/gallery-04-513x513.jpg") }}" alt="" width="513" height="513"/><span class="thumb_overlay novi-background"><span class="thumb_cnt"><span class="thumb-icon novi-icon fl-line-ui-heart369"></span><span>Full Accreditation</span></span></span></a>
+                <div class="col-sm-6 col-md-3">
+                    <a class="thumb" href="{{ asset("front/images/gallery-04_original.jpg") }}" data-lightgallery="item">
+                        <img src="{{ asset("front/images/gallery-04-513x513.jpg") }}" alt="" width="513" height="513"/>
+                        <span class="thumb_overlay novi-background">
+                            <span class="thumb_cnt">
+                                <span class="thumb-icon novi-icon fl-line-ui-heart369"></span>
+                                <span>Full Accreditation</span>
+                            </span>
+                        </span>
+                    </a>
                 </div>
                 <div class="col-sm-6 col-md-3"><a class="thumb" href="{{ asset("front/images/gallery-05_original.jpg") }}" data-lightgallery="item"><img src="{{ asset("front/images/gallery-05-513x513.jpg") }}" alt="" width="513" height="513"/><span class="thumb_overlay novi-background"><span class="thumb_cnt"><span class="thumb-icon novi-icon fl-line-ui-heart369"></span><span>Children Development</span></span></span></a>
                 </div>
@@ -266,15 +366,30 @@
                 </div>
                 <div class="col-sm-6 col-md-3"><a class="thumb" href="{{ asset("front/images/gallery-08_original.jpg") }}" data-lightgallery="item"><img src="{{ asset("front/images/gallery-08-513x513.jpg") }}" alt="" width="513" height="513"/><span class="thumb_overlay novi-background"><span class="thumb_cnt"><span class="thumb-icon novi-icon fl-line-ui-heart369"></span><span>Best Educational Resources</span></span></span></a>
                 </div>
+                @endif
             </div>
         </div>
     </section>
     <section class="well-4 well-inset-1 bg-default center novi-background custom-bg-image" data-preset='{"title":"Team boxed","category":"team","reload":false,"id":"team-boxed"}'>
         <div class="container">
-            <h2>Our staff</h2>
+            <h2>@lang('translate.staff')</h2>
             <hr>
             <h4>Fusce maximus, urna a aliquet eleifend, tortor</h4>
             <div class="row row-30 row-flex">
+                @if(count($staff) > 0)
+                    @foreach($staff as $staff_item)
+                        <div class="col-sm-6 col-md-4">
+                            <div class="box-bordered">
+                                <img src="{{ asset("storage/staff/".$staff_item->photo) }}" alt="" width="100" height="100"/>
+                                <h3>{{ $staff_item->translate($locale)->name }}</h3>
+                                <p>{!! $staff_item->translate($locale)->description !!}</p>
+                                @if(isset($staff_item->contact))
+                                <a href="mailto:#">{{ $staff_item->contact }}</a>
+                                @endif
+                            </div>
+                        </div>
+                    @endforeach
+                @else
                 <div class="col-sm-6 col-md-4">
                     <div class="box-bordered"><img src="{{ asset("front/images/team-1-100x100.jpg") }}" alt="" width="100" height="100"/>
                         <h3>David Austin</h3>
@@ -293,12 +408,31 @@
                         <p>Aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos.</p><a href="mailto:#">info@demolink.org</a>
                     </div>
                 </div>
+                @endif
             </div>
         </div>
     </section>
     <section class="price-section" id="Price">
         <h2>Price List</h2>
         <div class="price-content">
+            <?php $k = 0; ?>
+            @if(count($prices) > 0)
+                @foreach($prices as $price)
+                    <div class="@if($k%2==0)price-1 @else price-2 @endif">
+                        <div class="price-logo">
+                            <img src="{{ asset("storage/price/".$price->photo) }}" alt="">
+                        </div>
+                        <div class="price-text">
+                            <h2>{{ $price->translate($locale)->title }}</h2>
+                            @php $price_lists = json_decode($price->translate($locale)->price); @endphp
+                            @foreach($price_lists as $list => $count)
+                            <p>{{ $list }}  ..................................  <b>{{ $count }}</b> So'm</p>
+                            @endforeach
+                        </div>
+                    </div>
+                    <?php $k++; ?>
+                @endforeach
+            @else
             <div class="price-1">
                 <div class="price-logo">
                     <img src="{{ asset("front/images/logo.png") }}" alt="">
@@ -333,6 +467,7 @@
                     <p>Lorem ipsum dolor.................................<b>50 000</b> So'm</p>
                 </div>
             </div>
+            @endif
         </div>
     </section>
     <section>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Services\Testimonial\Contracts\StaffService as TestimonialServiceInterface;
+use App\Services\Testimonial\Contracts\TestimonialService as TestimonialServiceInterface;
 use Illuminate\Support\Facades\Storage;
 
 class TestimonialController extends Controller

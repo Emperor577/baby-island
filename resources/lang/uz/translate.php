@@ -14,4 +14,7 @@ return [
     'gallery' => 'galereya',
     'price' => 'Narxlar',
     'contact' => 'Aloqa',
+    'testimonials' => 'Muzojlar fikri',
+    'test_desc' => 'Farzandlarimizning ota-onalari Baby Island haqida nima deyishgan.',
+    'staff' => 'Bizning xodimlar'
 ];
