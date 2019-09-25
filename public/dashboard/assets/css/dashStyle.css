@@ -1,0 +1,11 @@
+#my_image {
+    position: relative;
+    left: 30px;
+    margin-bottom: 10px;
+}
+.delete-image {
+    position: absolute;
+    cursor: pointer;
+    color: red;
+    top: 5%;
+}
