@@ -27,7 +27,7 @@ class SliderService implements SliderServiceInterface
         $slider->save();
         $uz_data = array('text' => $data['text_uz'], 'title' => $data['title_uz']);
         $ru_data = array('text' => $data['text_ru'], 'title' => $data['title_ru']);
-        
+
         $setTranslation = Slider::where('id', $slider->id)->first();
         $setTranslation->getNewTranslation('uz')->fill($uz_data);
         $setTranslation->getNewTranslation('ru')->fill($ru_data);
@@ -42,9 +42,7 @@ class SliderService implements SliderServiceInterface
         $slider->translate('ru')->text = $data['text_ru'];
         $slider->translate('uz')->title = $data['title_uz'];
         $slider->translate('uz')->text = $data['text_uz'];
-        if (Arr::has($data,'link')) {
-            $slider->link = $data['link'];
-        }
+      
         if (is_file(Arr::get($data, 'photo'))) {
             Storage::disk('public')->delete('slider/'.$slider->photo);
             $images = Arr::get($data, 'photo')->getClientOriginalName();

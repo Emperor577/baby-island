@@ -6363,6 +6363,8 @@ html.rd-navbar-fixed-linked .page {
 .rd-navbar-transparent.rd-navbar-static .rd-navbar-main-element {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  padding-right: 25px;
 }
 
 .rd-navbar-transparent.rd-navbar-static.rd-navbar--is-stuck, .rd-navbar-transparent.rd-navbar-static.rd-navbar--is-clone {
