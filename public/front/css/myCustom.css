@@ -100,3 +100,41 @@
 .price-text p{
   font-size: 17px;
 }
+
+
+/* Modal */
+
+.modal-video{
+  width: 100%;
+  height: 100vh;
+  display: none;
+  position: fixed;
+  background: rgba(0,0,0,0.9);
+  z-index: 1011;
+  top: 0;
+}
+.modal-video-play{
+  width:80% ;
+  height: 80vh;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform:translate(-50%,-50%);
+
+}
+
+.close{
+  position: absolute;
+  color: white;
+    right: -30px;
+    top: 0;
+    font-size: 30px;
+}
+
+.close:hover{
+  color: red;
+}
+
+#youtube{
+  z-index: 25;
+}

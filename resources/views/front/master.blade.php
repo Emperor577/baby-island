@@ -232,7 +232,7 @@
                 <h2>Innovative methods</h2>
                 <hr>
                 <h4>Our center uses the most innovative methods of learning that support creativity and inquiry.</h4>
-                <div class="button-group"><a class="button button-default button-lg" href="about-us.html">Read more</a><a class="button button-2 button-lg" href="#">Join us</a></div>
+                <div class="button-group"><button id="video-play" class="button button-default button-lg" >Play video</button></div>
             </div>
         </div>
     </section>
@@ -562,7 +562,15 @@
 
 <div class="snackbars" id="form-output-global"></div>
 
+<div class="modal-video" id="modal-video">
+  <div class="modal-video-play">
+    <span class="close" id="close">&times</span>
+    <iframe id="youtube" width="100%" height="100%" src="https://www.youtube.com/embed/f1bPOt1uD8g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+
 <script src="{{ asset("front/js/core.min.js") }}"></script>
 <script src="{{ asset("front/js/script.js") }}"></script>
+<script src="{{asset("front/js/myscript.js") }}" charset="utf-8"></script>
 </body>
 </html>
