@@ -62,7 +62,7 @@
                                         </li>
                                         <li class="rd-nav-item"><a class="rd-nav-link" href="#uslugi">@lang('translate.service')</a>
                                         </li>
-                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#pages">@lang('translate.gallery')</a>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#gallery-section">@lang('translate.gallery')</a>
                                         </li>
                                         <li class="rd-nav-item"><a class="rd-nav-link" href="#Price">@lang('translate.price')</a>
                                         </li>
@@ -236,7 +236,7 @@
             </div>
         </div>
     </section>
-    <section id="pages" class="well-3 bg-pattern center novi-background bg-cover">
+    <section class="well-3 bg-pattern center novi-background bg-cover">
         <div class="container">
             <h2>@lang('translate.testimonials')</h2>
             <hr>
@@ -295,7 +295,7 @@
             </div>
         </div>
     </section>
-    <section class="gallery gallery-no-padding novi-section">
+    <section id="gallery-section" class="gallery gallery-no-padding novi-section">
         <div class="thumb-toggle" data-custom-toggle=".gallery"></div>
         <div class="container-fluid" data-lightgallery="group">
             <div class="row row-30">
