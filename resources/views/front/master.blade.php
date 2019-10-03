@@ -4,15 +4,18 @@
     <title>Home</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" href="{{ asset("front/images/favicon.ico") }}" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="shortcut icon" href="{{ asset("front/images/favicon.ico") }}" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:400,300%7CRoboto+Condensed:400,700,300">
     <link rel="stylesheet" href="{{ asset("front/css/bootstrap.css") }}">
     <link rel="stylesheet" href="{{ asset("front/css/fonts.css") }}">
     <link rel="stylesheet" href="{{ asset("front/css/myCustom.css") }}">
     <link rel="stylesheet" href="{{ asset("front/css/style.css") }}">
     <link rel="stylesheet" href="{{ asset("front/css/responsive.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("front/js/style.css") }}">
     <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,500,600,700&display=swap&subset=cyrillic,cyrillic-ext,greek,latin-ext,vietnamese" rel="stylesheet">
+    <script src="{{ asset("front/js/modernizr.custom.63321.js") }}"></script>
     <style>.ie-panel { display: none; background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .3); clear: both; text-align: center; position: relative; z-index: 1; } html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel { display: block; }</style>
 </head>
 <body>
@@ -232,7 +235,7 @@
                 <h2>Innovative methods</h2>
                 <hr>
                 <h4>Our center uses the most innovative methods of learning that support creativity and inquiry.</h4>
-                <div class="button-group"><a class="button button-default button-lg" href="about-us.html">Read more</a><a class="button button-2 button-lg" href="#">Join us</a></div>
+                <div class="button-group"><button class="button button-default button-lg" id="video-play">Video</button></div>
             </div>
         </div>
     </section>
@@ -415,59 +418,293 @@
     <section class="price-section" id="Price">
         <h2>Price List</h2>
         <div class="price-content">
-            <?php $k = 0; ?>
-            @if(count($prices) > 0)
-                @foreach($prices as $price)
-                    <div class="@if($k%2==0)price-1 @else price-2 @endif">
-                        <div class="price-logo">
-                            <img src="{{ asset("storage/price/".$price->photo) }}" alt="">
-                        </div>
-                        <div class="price-text">
-                            <h2>{{ $price->translate($locale)->title }}</h2>
-                            @php $price_lists = json_decode($price->translate($locale)->price); @endphp
-                            @foreach($price_lists as $list => $count)
-                            <p>{{ $list }}  ..................................  <b>{{ $count }}</b> So'm</p>
-                            @endforeach
-                        </div>
+          <div id="mi-slider" class="mi-slider">
+					<ul>
+						<li class="price-wrap" id="price-wrap">
+
+                <div class="price-block">
+                    <div class="price-title">
+                        <h1>baby spa</h1>
                     </div>
-                    <?php $k++; ?>
-                @endforeach
-            @else
-            <div class="price-1">
-                <div class="price-logo">
-                    <img src="{{ asset("front/images/logo.png") }}" alt="">
+                    <div class="price-amount">
+                        <strong>124 000 UZS</strong>
+                        <small>per month</small>
+                    </div>
+                    <div class="price-description">
+                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
+                    </div>
+                    <div class="price-button">
+                        <button id="price-btn" type="button" >get started</button>
+                    </div>
                 </div>
-                <div class="price-text">
-                    <h2>Baby SPA</h2>
-                    <p>Lorem ipsum..........................................<b>50 000</b> So'm</p>
-                    <p>Lorem ipsum dolor.................................<b>50 000</b> So'm</p>
-                    <p>Lorem ipsum..........................................<b>50 000</b> So'm</p>
-                    <p>Lorem ipsum dolor.................................<b>50 000</b> So'm</p>
-                    <p>Lorem ipsum..........................................<b>50 000</b> So'm</p>
-                    <p>Lorem ipsum..........................................<b>50 000</b> So'm</p>
-                    <p>Lorem ipsum dolor.................................<b>50 000</b> So'm</p>
-                    <p>Lorem ipsum..........................................<b>50 000</b> So'm</p>
-                    <p>Lorem ipsum dolor.................................<b>50 000</b> So'm</p>
+            </li>
+            <li class="price-wrap" id="price-wrap">
+
+                <div class="price-block">
+                    <div class="price-title">
+                        <h1>Массаж общий</h1>
+                    </div>
+                    <div class="price-amount">
+                        <strong>50 000 UZS  </strong>
+                        <small>per month</small>
+                    </div>
+                    <div class="price-description">
+                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
+                    </div>
+                    <div class="price-button">
+                        <button id="price-btn" type="button" >get started</button>
+                    </div>
                 </div>
-            </div>
-            <div class="price-2">
-                <div class="price-logo">
-                    <img src="{{ asset("front/images/logo.png") }}" alt="">
+            </li>
+            <li class="price-wrap" id="price-wrap">
+
+                <div class="price-block">
+                    <div class="price-title">
+                        <h1>baby spa</h1>
+                    </div>
+                    <div class="price-amount">
+                        <strong>$ 54</strong>
+                        <small>per month</small>
+                    </div>
+                    <div class="price-description">
+                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
+                    </div>
+                    <div class="price-button">
+                        <button id="price-btn" type="button" >get started</button>
+                    </div>
                 </div>
-                <div class="price-text">
-                    <h2>Baby Growth</h2>
-                    <p>Lorem ipsum..........................................<b>50 000</b> So'm</p>
-                    <p>Lorem ipsum dolor.................................<b>50 000</b> So'm</p>
-                    <p>Lorem ipsum..........................................<b>50 000</b> So'm</p>
-                    <p>Lorem ipsum..........................................<b>50 000</b> So'm</p>
-                    <p>Lorem ipsum dolor.................................<b>50 000</b> So'm</p>
-                    <p>Lorem ipsum..........................................<b>50 000</b> So'm</p>
-                    <p>Lorem ipsum dolor.................................<b>50 000</b> So'm</p>
-                    <p>Lorem ipsum..........................................<b>50 000</b> So'm</p>
-                    <p>Lorem ipsum dolor.................................<b>50 000</b> So'm</p>
+            </li>
+            <li class="price-wrap" id="price-wrap">
+
+                <div class="price-block">
+                    <div class="price-title">
+                        <h1>Массаж общий</h1>
+                    </div>
+                    <div class="price-amount">
+                        <strong>50 000 UZS  </strong>
+                        <small>per month</small>
+                    </div>
+                    <div class="price-description">
+                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
+                    </div>
+                    <div class="price-button">
+                        <button id="price-btn" type="button" >get started</button>
+                    </div>
                 </div>
-            </div>
-            @endif
+            </li>
+            <li class="price-wrap" id="price-wrap">
+
+                <div class="price-block">
+                    <div class="price-title">
+                        <h1>baby spa</h1>
+                    </div>
+                    <div class="price-amount">
+                        <strong>$ 54</strong>
+                        <small>per month</small>
+                    </div>
+                    <div class="price-description">
+                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
+                    </div>
+                    <div class="price-button">
+                        <button id="price-btn" type="button" >get started</button>
+                    </div>
+                </div>
+            </li>
+            <li class="price-wrap" id="price-wrap">
+
+                <div class="price-block">
+                    <div class="price-title">
+                        <h1>baby spa</h1>
+                    </div>
+                    <div class="price-amount">
+                        <strong>$ 54</strong>
+                        <small>per month</small>
+                    </div>
+                    <div class="price-description">
+                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
+                    </div>
+                    <div class="price-button">
+                        <button id="price-btn" type="button" >get started</button>
+                    </div>
+                </div>
+            </li>
+					</ul>
+					<ul>
+            <li class="price-wrap" id="price-wrap">
+
+                <div class="price-block">
+                    <div class="price-title">
+                        <h1>baby spa</h1>
+                    </div>
+                    <div class="price-amount">
+                        <strong>$ 54</strong>
+                        <small>per month</small>
+                    </div>
+                    <div class="price-description">
+                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
+                    </div>
+                    <div class="price-button">
+                        <button id="price-btn" type="button" >get started</button>
+                    </div>
+                </div>
+            </li>
+            <li class="price-wrap" id="price-wrap">
+
+                <div class="price-block">
+                    <div class="price-title">
+                        <h1>baby spa</h1>
+                    </div>
+                    <div class="price-amount">
+                        <strong>$ 54</strong>
+                        <small>per month</small>
+                    </div>
+                    <div class="price-description">
+                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
+                    </div>
+                    <div class="price-button">
+                        <button id="price-btn" type="button" >get started</button>
+                    </div>
+                </div>
+            </li>
+            <li class="price-wrap" id="price-wrap">
+
+                <div class="price-block">
+                    <div class="price-title">
+                        <h1>baby spa</h1>
+                    </div>
+                    <div class="price-amount">
+                        <strong>$ 54</strong>
+                        <small>per month</small>
+                    </div>
+                    <div class="price-description">
+                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
+                    </div>
+                    <div class="price-button">
+                        <button id="price-btn" type="button" >get started</button>
+                    </div>
+                </div>
+            </li>
+					</ul>
+					<ul>
+            <li class="price-wrap" id="price-wrap">
+
+                <div class="price-block">
+                    <div class="price-title">
+                        <h1>baby spa</h1>
+                    </div>
+                    <div class="price-amount">
+                        <strong>$ 54</strong>
+                        <small>per month</small>
+                    </div>
+                    <div class="price-description">
+                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
+                    </div>
+                    <div class="price-button">
+                        <button id="price-btn" type="button" >get started</button>
+                    </div>
+                </div>
+            </li>
+            <li class="price-wrap" id="price-wrap">
+
+                <div class="price-block">
+                    <div class="price-title">
+                        <h1>baby spa</h1>
+                    </div>
+                    <div class="price-amount">
+                        <strong>$ 54</strong>
+                        <small>per month</small>
+                    </div>
+                    <div class="price-description">
+                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
+                    </div>
+                    <div class="price-button">
+                        <button id="price-btn" type="button" >get started</button>
+                    </div>
+                </div>
+            </li>
+            <li class="price-wrap" id="price-wrap">
+
+                <div class="price-block">
+                    <div class="price-title">
+                        <h1>baby spa</h1>
+                    </div>
+                    <div class="price-amount">
+                        <strong>$ 54</strong>
+                        <small>per month</small>
+                    </div>
+                    <div class="price-description">
+                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
+                    </div>
+                    <div class="price-button">
+                        <button id="price-btn" type="button" >get started</button>
+                    </div>
+                </div>
+            </li>
+					</ul>
+					<ul>
+            <li class="price-wrap" id="price-wrap">
+
+                <div class="price-block">
+                    <div class="price-title">
+                        <h1>baby spa</h1>
+                    </div>
+                    <div class="price-amount">
+                        <strong>$ 54</strong>
+                        <small>per month</small>
+                    </div>
+                    <div class="price-description">
+                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
+                    </div>
+                    <div class="price-button">
+                        <button id="price-btn" type="button" >get started</button>
+                    </div>
+                </div>
+            </li>
+            <li class="price-wrap" id="price-wrap">
+
+                <div class="price-block">
+                    <div class="price-title">
+                        <h1>baby spa</h1>
+                    </div>
+                    <div class="price-amount">
+                        <strong>$ 54</strong>
+                        <small>per month</small>
+                    </div>
+                    <div class="price-description">
+                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
+                    </div>
+                    <div class="price-button">
+                        <button id="price-btn" type="button" >get started</button>
+                    </div>
+                </div>
+            </li>
+            <li class="price-wrap" id="price-wrap">
+
+                <div class="price-block">
+                    <div class="price-title">
+                        <h1>baby spa</h1>
+                    </div>
+                    <div class="price-amount">
+                        <strong>$ 54</strong>
+                        <small>per month</small>
+                    </div>
+                    <div class="price-description">
+                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
+                    </div>
+                    <div class="price-button">
+                        <button id="price-btn" type="button" >get started</button>
+                    </div>
+                </div>
+            </li>
+					</ul>
+					<nav>
+						<a href="#">Shoes</a>
+						<a href="#">Accessories</a>
+						<a href="#">Watches</a>
+						<a href="#">Bags</a>
+					</nav>
+				</div>
+
         </div>
     </section>
     <section>
@@ -562,7 +799,24 @@
 
 <div class="snackbars" id="form-output-global"></div>
 
+<div class="Modal-window" id="modal-video">
+<div class="cont-mod-video">
+  <span id="close" class="closes">&times</span>
+<iframe id="youtube" width="100%" height="100%" src="https://www.youtube.com/embed/boY6FvdnrBQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="{{ asset("front/js/core.min.js") }}"></script>
 <script src="{{ asset("front/js/script.js") }}"></script>
+<script src="{{ asset("front/js/myscript.js") }}"></script>
+<script src="{{ asset("front/js/jquery.catslider.js") }}"></script>
+<script>
+  $(function() {
+
+    $( '#mi-slider' ).catslider();
+
+  });
+</script>
 </body>
 </html>

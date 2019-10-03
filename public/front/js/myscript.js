@@ -7,21 +7,21 @@ vidmodbtn.onclick=function mod() {
   vidmod.style.display='block';
 }
 
-vidmodclose.onclick=function close() {
-  stopVideo(vidmod);
+vidmodclose.onclick=function() {
+  stopVideo();
    vidmod.style.display='none';
 
 }
 
 window.onclick=function clos(event) {
   if (event.target==vidmod) {
-      stopVideo(vidmod);
+      stopVideo();
     vidmod.style.display="none";
 
   }
 }
 
-function stopVideo(modal) {
+function stopVideo() {
 var youtube=document.getElementById('youtube');
   youtube.src = youtube.src;
 }

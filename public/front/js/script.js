@@ -1175,10 +1175,10 @@
 
 $(document).ready(function () {
 	$('.price-wrap').on('mouseover', function () {
-		
+		console.log(25);
         var price_list = this;
         var price_botton = $('button',this);
-        price_list.style.backgroundColor = '#5a44c4';
+        price_list.style.backgroundColor = 'rgb(200,235,100)';
         price_list.style.color = '#fff';
         price_botton.css('background-color', '#fff');
         price_botton.css('color', '#000');
@@ -1191,12 +1191,10 @@ $(document).ready(function () {
         var price_botton = $('button',this);
         price_list.style.backgroundColor = '#fff';
         price_list.style.color = '#000';
-        price_botton.css('background-color', '#5a44c4');
+        price_botton.css('background-color', 'rgb(100,200,235)');
         price_botton.css('color', '#fff');
         price_list.style.height='60vh';
         price_list.style.transition='.4s';
         price_botton.css('transition', '.4s');
 	});
 });
-
-
