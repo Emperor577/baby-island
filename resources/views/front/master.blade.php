@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html class="wide wow-animation" lang="en">
+
 <head>
     <title>Home</title>
     <meta charset="utf-8">
@@ -12,12 +13,30 @@
     <link rel="stylesheet" href="{{ asset("front/css/myCustom.css") }}">
     <link rel="stylesheet" href="{{ asset("front/css/style.css") }}">
     <link rel="stylesheet" href="{{ asset("front/css/responsive.css") }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset("front/js/style.css") }}">
     <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,500,600,700&display=swap&subset=cyrillic,cyrillic-ext,greek,latin-ext,vietnamese" rel="stylesheet">
+
     <script src="{{ asset("front/js/modernizr.custom.63321.js") }}"></script>
-    <style>.ie-panel { display: none; background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .3); clear: both; text-align: center; position: relative; z-index: 1; } html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel { display: block; }</style>
+    <style>
+        .ie-panel {
+            display: none;
+            background: #212121;
+            padding: 10px 0;
+            box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .3);
+            clear: both;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        html.ie-10 .ie-panel,
+        html.lt-ie-10 .ie-panel {
+            display: block;
+        }
+
+    </style>
 </head>
+
 <body>
 
 <div class="ie-panel">
@@ -51,7 +70,7 @@
                                 <!-- RD Navbar Brand-->
                                 <div class="rd-navbar-brand">
                                     <a class="brand" href="index.html">
-                                        <img  src="{{ asset("front/images/logo.png") }}" alt="" /> <span>Babby island</span>
+                                        <img src="{{ asset("front/images/logo.png") }}" alt="" /> <span>Babby island</span>
                                     </a>
                                 </div>
                             </div>
@@ -73,15 +92,15 @@
                                         </li>
                                         <li class="rd-nav-item">
                                             @if($locale === 'ru')
-                                            <a class="rd-nav-link" href="{{ route('locale', "ru") }}">Ру</a>
-                                            <ul class="rd-menu rd-navbar-dropdown">
-                                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{{ route('locale', "uz") }}">Uz</a></li>
-                                            </ul>
+                                                <a class="rd-nav-link" href="{{ route('locale', " ru") }}">Ру</a>
+                                                <ul class="rd-menu rd-navbar-dropdown">
+                                                    <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{{ route('locale', " uz") }}">Uz</a></li>
+                                                </ul>
                                             @elseif($locale === 'uz')
-                                            <a class="rd-nav-link" href="{{ route('locale', "uz") }}">Uz</a>
-                                            <ul class="rd-menu rd-navbar-dropdown">
-                                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{{ route('locale', "ru") }}">Ру</a></li>
-                                            </ul>
+                                                <a class="rd-nav-link" href="{{ route('locale', " uz") }}">Uz</a>
+                                                <ul class="rd-menu rd-navbar-dropdown">
+                                                    <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{{ route('locale', " ru") }}">Ру</a></li>
+                                                </ul>
                                             @endif
                                         </li>
                                     </ul>
@@ -92,22 +111,22 @@
                 </nav>
             </div>
         </header>
-        <div id="home"  class="section swiper-container swiper-slider swiper-slider-1" data-loop="true" data-autoplay="5000" data-simulate-touch="false">
+        <div id="home" class="section swiper-container swiper-slider swiper-slider-1" data-loop="true" data-autoplay="5000" data-simulate-touch="false">
             <div class="swiper-wrapper text-center">
                 @foreach($sliders as $slider)
-                <div class="swiper-slide context-dark" data-slide-bg="{{ asset("storage/slider/".$slider->photo) }}">
-                    <div class="swiper-slide-caption section-md">
-                        <div class="container">
-                            <div class="row row-fix justify-content-center">
-                                <div class="col-md-11 col-lg-9 col-xxl-8">
-                                    <h2 data-caption-animate="fadeInUp" data-caption-delay="100">{{ $slider->translate($locale)->title }}</h2>
-                                    <hr>
-                                    <h4 class="lead" data-caption-animate="fadeInUp" data-caption-delay="250">{{ $slider->translate($locale)->text }}</h4>
+                    <div class="swiper-slide context-dark" data-slide-bg="{{ asset("storage/slider/".$slider->photo) }}">
+                        <div class="swiper-slide-caption section-md">
+                            <div class="container">
+                                <div class="row row-fix justify-content-center">
+                                    <div class="col-md-11 col-lg-9 col-xxl-8">
+                                        <h2 data-caption-animate="fadeInUp" data-caption-delay="100">{{ $slider->translate($locale)->title }}</h2>
+                                        <hr>
+                                        <h4 class="lead" data-caption-animate="fadeInUp" data-caption-delay="250">{{ $slider->translate($locale)->text }}</h4>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
             </div>
             <!-- Swiper Navigation-->
@@ -120,30 +139,30 @@
         </div>
     </section>
     <!--
-    ========================================================
-    CONTENT
-    ========================================================
-    -->
+========================================================
+CONTENT
+========================================================
+-->
     <?php $i = 0; ?>
     @if(count($about_us) > 0)
         @foreach($about_us as $value)
             @if($i%2 == 0)
-            <section id="about-us" class="novi-section">
-                <div class="bg-aside bg-aside-left center">
-                    <div class="img">
-                        <img src="{{ asset("storage/about-us/".$value->photo) }}" alt="" width="1025" height="664"/>
+                <section id="about-us" class="novi-section">
+                    <div class="bg-aside bg-aside-left center">
+                        <div class="img">
+                            <img src="{{ asset("storage/about-us/".$value->photo) }}" alt="" width="1025" height="664" />
+                        </div>
+                        <div class="cnt-block well-1 novi-background">
+                            {!! $value->translate($locale)->text !!}
+                        </div>
                     </div>
-                    <div class="cnt-block well-1 novi-background">
-                        {!! $value->translate($locale)->text !!}
-                    </div>
-                </div>
-            </section>
+                </section>
                 <?php $i++ ?>
             @else
-            <section class="novi-section" data-preset='{"title":"Content box 2","category":"content box","reload":false,"id":"content-box-2"}'>
+                <section class="novi-section" data-preset='{"title":"Content box 2","category":"content box","reload":false,"id":"content-box-2"}'>
                     <div class="bg-aside bg-aside-right center">
                         <div class="img">
-                            <img src="{{ asset("storage/about-us/".$value->photo) }}" alt="" width="1025" height="664"/>
+                            <img src="{{ asset("storage/about-us/".$value->photo) }}" alt="" width="1025" height="664" />
                         </div>
                         <div class="cnt-block well-1 novi-background">
                             {!! $value->translate($locale)->text !!}
@@ -156,7 +175,7 @@
     @else
         <section id="about-us" class="novi-section">
             <div class="bg-aside bg-aside-left center">
-                <div class="img"><img src="{{ asset("front/images/home-1-1025x664.jpg") }}" alt="" width="1025" height="664"/>
+                <div class="img"><img src="{{ asset("front/images/home-1-1025x664.jpg") }}" alt="" width="1025" height="664" />
                 </div>
                 <div class="cnt-block well-1 novi-background">
                     <h2>Who we are</h2>
@@ -167,7 +186,7 @@
         </section>
         <section class="novi-section" data-preset='{"title":"Content box 2","category":"content box","reload":false,"id":"content-box-2"}'>
             <div class="bg-aside bg-aside-right center">
-                <div class="img"><img src="{{ asset("front/images/home-2-1025x664.jpg") }}" alt="" width="1025" height="664"/>
+                <div class="img"><img src="{{ asset("front/images/home-2-1025x664.jpg") }}" alt="" width="1025" height="664" />
                 </div>
                 <div class="cnt-block well-1 novi-background">
                     <h2>Our values</h2>
@@ -178,7 +197,7 @@
         </section>
         <section class="novi-section">
             <div class="bg-aside bg-aside-left center">
-                <div class="img"><img src="{{ asset("front/images/home-3-1025x664.jpg") }}" alt="" width="1025" height="664"/>
+                <div class="img"><img src="{{ asset("front/images/home-3-1025x664.jpg") }}" alt="" width="1025" height="664" />
                 </div>
                 <div class="cnt-block well-1 novi-background">
                     <h2>Why us?</h2>
@@ -191,43 +210,49 @@
 
 
     <section class="well-4 bg-default novi-background bg-cover uslugi" id="uslugi">
-      <div class="container center">
-        <h2>Наши услуги</h2>
-        <hr>
-        <h4>Read the latest news and updates from Happy Kids.</h4>
-        <div class="row row-30 offset-custom-2">
-          <article class="col-sm-6 col-md-4"><a class="post" href="blog-post.html"><img src="{{ asset("front/images/home-7-370x453.jpg") }}" alt="" width="370" height="453"/>
-              <div class="post_cnt">
-                <h3>How Testing Buoyancy Can Build Babies’ Skills</h3>
-                <time datetime="2015-04-14">April 10, 2018</time>
-              </div></a></article>
-          <article class="col-sm-6 col-md-4"><a class="post" href="blog-post.html"><img src="{{ asset("front/images/home-8-370x453.jpg") }}" alt="" width="370" height="453"/>
-              <div class="post_cnt">
-                <h3>Preschool Science Activities Make Kids Independent Thinkers</h3>
-                <time datetime="2015-04-14">April 12, 2018</time>
-              </div></a></article>
-          <article class="col-sm-6 col-md-4"><a class="post" href="blog-post.html"><img src="{{ asset("front/images/home-9-370x453.jpg") }}" alt="" width="370" height="453"/>
-              <div class="post_cnt">
-                <h3>Sensory Counting Games for Kids Blend Fun and Education</h3>
-                <time datetime="2015-04-14">April 14, 2018</time>
-              </div></a></article>
-          <article class="col-sm-6 col-md-4"><a class="post" href="blog-post.html"><img src="{{ asset("front/images/home-10-370x453.jpg") }}" alt="" width="370" height="453"/>
-              <div class="post_cnt">
-                <h3>The Road to Positive Parenting: Alternatives to "No"</h3>
-                <time datetime="2015-04-14">April 16, 2018</time>
-              </div></a></article>
-          <article class="col-sm-6 col-md-4"><a class="post" href="blog-post.html"><img src="{{ asset("front/images/home-11-370x453.jpg") }}" alt="" width="370" height="453"/>
-              <div class="post_cnt">
-                <h3>Teach Good Decision-Making Skills and Say Goodbye to Power Struggles</h3>
-                <time datetime="2015-04-14">April 18, 2018</time>
-              </div></a></article>
-          <article class="col-sm-6 col-md-4"><a class="post" href="blog-post.html"><img src="{{ asset("front/images/home-12-370x453.jpg") }}" alt="" width="370" height="453"/>
-              <div class="post_cnt">
-                <h3>Raise a Grateful Child and Watch Them Become a Caring Adult</h3>
-                <time datetime="2015-04-14">April 20, 2018</time>
-              </div></a></article>
+        <div class="container center">
+            <h2>Наши услуги</h2>
+            <hr>
+            <h4>Read the latest news and updates from Happy Kids.</h4>
+            <div class="row row-30 offset-custom-2">
+                <article class="col-sm-6 col-md-4"><a class="post" href="blog-post.html"><img src="{{ asset("front/images/home-7-370x453.jpg") }}" alt="" width="370" height="453" />
+                        <div class="post_cnt">
+                            <h3>How Testing Buoyancy Can Build Babies’ Skills</h3>
+                            <time datetime="2015-04-14">April 10, 2018</time>
+                        </div>
+                    </a></article>
+                <article class="col-sm-6 col-md-4"><a class="post" href="blog-post.html"><img src="{{ asset("front/images/home-8-370x453.jpg") }}" alt="" width="370" height="453" />
+                        <div class="post_cnt">
+                            <h3>Preschool Science Activities Make Kids Independent Thinkers</h3>
+                            <time datetime="2015-04-14">April 12, 2018</time>
+                        </div>
+                    </a></article>
+                <article class="col-sm-6 col-md-4"><a class="post" href="blog-post.html"><img src="{{ asset("front/images/home-9-370x453.jpg") }}" alt="" width="370" height="453" />
+                        <div class="post_cnt">
+                            <h3>Sensory Counting Games for Kids Blend Fun and Education</h3>
+                            <time datetime="2015-04-14">April 14, 2018</time>
+                        </div>
+                    </a></article>
+                <article class="col-sm-6 col-md-4"><a class="post" href="blog-post.html"><img src="{{ asset("front/images/home-10-370x453.jpg") }}" alt="" width="370" height="453" />
+                        <div class="post_cnt">
+                            <h3>The Road to Positive Parenting: Alternatives to "No"</h3>
+                            <time datetime="2015-04-14">April 16, 2018</time>
+                        </div>
+                    </a></article>
+                <article class="col-sm-6 col-md-4"><a class="post" href="blog-post.html"><img src="{{ asset("front/images/home-11-370x453.jpg") }}" alt="" width="370" height="453" />
+                        <div class="post_cnt">
+                            <h3>Teach Good Decision-Making Skills and Say Goodbye to Power Struggles</h3>
+                            <time datetime="2015-04-14">April 18, 2018</time>
+                        </div>
+                    </a></article>
+                <article class="col-sm-6 col-md-4"><a class="post" href="blog-post.html"><img src="{{ asset("front/images/home-12-370x453.jpg") }}" alt="" width="370" height="453" />
+                        <div class="post_cnt">
+                            <h3>Raise a Grateful Child and Watch Them Become a Caring Adult</h3>
+                            <time datetime="2015-04-14">April 20, 2018</time>
+                        </div>
+                    </a></article>
+            </div>
         </div>
-      </div>
     </section>
     <section id="news" class="well-2 center bg-vide novi-vide" data-vide-bg="{{ asset("front/video/video-bg") }}" data-vide-options="posterType: jpg">
         <div class="vide_cnt">
@@ -251,7 +276,7 @@
                             @foreach($testimonials as $testimonial)
                                 <div class="item">
                                     <blockquote>
-                                        <img src="{{ asset("storage/testimonial/".$testimonial->photo) }}" alt="" width="204" height="204"/>
+                                        <img src="{{ asset("storage/testimonial/".$testimonial->photo) }}" alt="" width="204" height="204" />
                                         <p>
                                             <cite>{{ $testimonial->translate($locale)->name }}</cite>
                                         </p>
@@ -262,36 +287,36 @@
                                 </div>
                             @endforeach
                         @else
-                        <div class="item">
-                            <blockquote><img src="{{ asset("front/images/home-04-204x204.jpg") }}" alt="" width="204" height="204"/>
-                                <p>
-                                    <cite>Kelly Ryan</cite>
-                                </p>
-                                <p>
-                                    <q>Words cannot express the thanks that my family has for each and every Happy Kids early childhood teacher. We enrolled at this nursery center in 2001 when Steven was six weeks old. Since then he has grown and matured into an amazing, intelligent young man.</q>
-                                </p><a class="button button-default" href="#">Read more</a>
-                            </blockquote>
-                        </div>
-                        <div class="item">
-                            <blockquote><img src="{{ asset("front/images/home-05-204x204.jpg") }}" alt="" width="204" height="204"/>
-                                <p>
-                                    <cite>Julia Smith</cite>
-                                </p>
-                                <p>
-                                    <q>I enrolled my son in this nursery center when he was 13 months old The Assistant Director answered all of my many questions and once we did drop him off the first day, she was there, with tissues in hand, assuring us that our baby would be OK.</q>
-                                </p><a class="button button-default" href="#">Read more</a>
-                            </blockquote>
-                        </div>
-                        <div class="item">
-                            <blockquote><img src="{{ asset("front/images/home-06-204x204.jpg") }}" alt="" width="204" height="204"/>
-                                <p>
-                                    <cite>Jane Williams</cite>
-                                </p>
-                                <p>
-                                    <q>As a parent, I entrust my greatest blessing to the staff at Happy Kids every day, and I am grateful for the loving care and guidance my son receives. The teachers and director look at each child as an individual, with their own strengths and needs.</q>
-                                </p><a class="button button-default" href="#">Read more</a>
-                            </blockquote>
-                        </div>
+                            <div class="item">
+                                <blockquote><img src="{{ asset("front/images/home-04-204x204.jpg") }}" alt="" width="204" height="204" />
+                                    <p>
+                                        <cite>Kelly Ryan</cite>
+                                    </p>
+                                    <p>
+                                        <q>Words cannot express the thanks that my family has for each and every Happy Kids early childhood teacher. We enrolled at this nursery center in 2001 when Steven was six weeks old. Since then he has grown and matured into an amazing, intelligent young man.</q>
+                                    </p><a class="button button-default" href="#">Read more</a>
+                                </blockquote>
+                            </div>
+                            <div class="item">
+                                <blockquote><img src="{{ asset("front/images/home-05-204x204.jpg") }}" alt="" width="204" height="204" />
+                                    <p>
+                                        <cite>Julia Smith</cite>
+                                    </p>
+                                    <p>
+                                        <q>I enrolled my son in this nursery center when he was 13 months old The Assistant Director answered all of my many questions and once we did drop him off the first day, she was there, with tissues in hand, assuring us that our baby would be OK.</q>
+                                    </p><a class="button button-default" href="#">Read more</a>
+                                </blockquote>
+                            </div>
+                            <div class="item">
+                                <blockquote><img src="{{ asset("front/images/home-06-204x204.jpg") }}" alt="" width="204" height="204" />
+                                    <p>
+                                        <cite>Jane Williams</cite>
+                                    </p>
+                                    <p>
+                                        <q>As a parent, I entrust my greatest blessing to the staff at Happy Kids every day, and I am grateful for the loving care and guidance my son receives. The teachers and director look at each child as an individual, with their own strengths and needs.</q>
+                                    </p><a class="button button-default" href="#">Read more</a>
+                                </blockquote>
+                            </div>
                         @endif
                     </div>
                 </div>
@@ -306,69 +331,69 @@
                     @foreach($gallery as $value)
                         <div class="col-sm-6 col-md-3">
                             <a class="thumb" href="{{ asset("storage/gallery/".$value->photo) }}" data-lightgallery="item">
-                                <img src="{{ asset("storage/gallery/".$value->photo) }}" alt="" width="513" height="513"/>
+                                <img src="{{ asset("storage/gallery/".$value->photo) }}" alt="" width="513" height="513" />
                                 <span class="thumb_overlay novi-background">
-                                    <span class="thumb_cnt">
-                                        <span class="thumb-icon novi-icon fl-line-ui-heart369"></span>
-                                        <span>{{ $value->translate($locale)->title }}</span>
-                                    </span>
-                                </span>
+								<span class="thumb_cnt">
+									<span class="thumb-icon novi-icon fl-line-ui-heart369"></span>
+									<span>{{ $value->translate($locale)->title }}</span>
+								</span>
+							</span>
                             </a>
                         </div>
                     @endforeach
                 @else
-                <div class="col-sm-6 col-md-3">
-                    <a class="thumb" href="{{ asset("front/images/gallery-01_original.jpg") }}" data-lightgallery="item">
-                        <img src="{{ asset("front/images/gallery-01-513x513.jpg") }}" alt="" width="513" height="513"/>
-                        <span class="thumb_overlay novi-background">
-                            <span class="thumb_cnt">
-                                <span class="thumb-icon novi-icon fl-line-ui-heart369"></span>
-                                <span>Committed Childcare</span>
-                            </span>
-                        </span>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                    <a class="thumb" href="{{ asset("front/images/gallery-02_original.jpg") }}" data-lightgallery="item">
-                        <img src="{{ asset("front/images/gallery-02-513x513.jpg") }}" alt="" width="513" height="513"/>
-                        <span class="thumb_overlay novi-background">
-                            <span class="thumb_cnt">
-                                <span class="thumb-icon novi-icon fl-line-ui-heart369"></span>
-                                <span>Qualified Teachers</span>
-                            </span>
-                        </span>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                    <a class="thumb" href="{{ asset("front/images/gallery-03_original.jpg") }}" data-lightgallery="item">
-                        <img src="{{ asset("front/images/gallery-03-513x513.jpg") }}" alt="" width="513" height="513"/>
-                        <span class="thumb_overlay novi-background">
-                            <span class="thumb_cnt">
-                                <span class="thumb-icon novi-icon fl-line-ui-heart369"></span>
-                                <span>Variety of Programs</span>
-                            </span>
-                        </span>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                    <a class="thumb" href="{{ asset("front/images/gallery-04_original.jpg") }}" data-lightgallery="item">
-                        <img src="{{ asset("front/images/gallery-04-513x513.jpg") }}" alt="" width="513" height="513"/>
-                        <span class="thumb_overlay novi-background">
-                            <span class="thumb_cnt">
-                                <span class="thumb-icon novi-icon fl-line-ui-heart369"></span>
-                                <span>Full Accreditation</span>
-                            </span>
-                        </span>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-3"><a class="thumb" href="{{ asset("front/images/gallery-05_original.jpg") }}" data-lightgallery="item"><img src="{{ asset("front/images/gallery-05-513x513.jpg") }}" alt="" width="513" height="513"/><span class="thumb_overlay novi-background"><span class="thumb_cnt"><span class="thumb-icon novi-icon fl-line-ui-heart369"></span><span>Children Development</span></span></span></a>
-                </div>
-                <div class="col-sm-6 col-md-3"><a class="thumb" href="{{ asset("front/images/gallery-06_original.jpg") }}" data-lightgallery="item"><img src="{{ asset("front/images/gallery-06-513x513.jpg") }}" alt="" width="513" height="513"/><span class="thumb_overlay novi-background"><span class="thumb_cnt"><span class="thumb-icon novi-icon fl-line-ui-heart369"></span><span>Working with Parents</span></span></span></a>
-                </div>
-                <div class="col-sm-6 col-md-3"><a class="thumb" href="{{ asset("front/images/gallery-07_original.jpg") }}" data-lightgallery="item"><img src="{{ asset("front/images/gallery-07-513x513.jpg") }}" alt="" width="513" height="513"/><span class="thumb_overlay novi-background"><span class="thumb_cnt"><span class="thumb-icon novi-icon fl-line-ui-heart369"></span><span>Annual Summer Activities</span></span></span></a>
-                </div>
-                <div class="col-sm-6 col-md-3"><a class="thumb" href="{{ asset("front/images/gallery-08_original.jpg") }}" data-lightgallery="item"><img src="{{ asset("front/images/gallery-08-513x513.jpg") }}" alt="" width="513" height="513"/><span class="thumb_overlay novi-background"><span class="thumb_cnt"><span class="thumb-icon novi-icon fl-line-ui-heart369"></span><span>Best Educational Resources</span></span></span></a>
-                </div>
+                    <div class="col-sm-6 col-md-3">
+                        <a class="thumb" href="{{ asset("front/images/gallery-01_original.jpg") }}" data-lightgallery="item">
+                            <img src="{{ asset("front/images/gallery-01-513x513.jpg") }}" alt="" width="513" height="513" />
+                            <span class="thumb_overlay novi-background">
+								<span class="thumb_cnt">
+									<span class="thumb-icon novi-icon fl-line-ui-heart369"></span>
+									<span>Committed Childcare</span>
+								</span>
+							</span>
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <a class="thumb" href="{{ asset("front/images/gallery-02_original.jpg") }}" data-lightgallery="item">
+                            <img src="{{ asset("front/images/gallery-02-513x513.jpg") }}" alt="" width="513" height="513" />
+                            <span class="thumb_overlay novi-background">
+								<span class="thumb_cnt">
+									<span class="thumb-icon novi-icon fl-line-ui-heart369"></span>
+									<span>Qualified Teachers</span>
+								</span>
+							</span>
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <a class="thumb" href="{{ asset("front/images/gallery-03_original.jpg") }}" data-lightgallery="item">
+                            <img src="{{ asset("front/images/gallery-03-513x513.jpg") }}" alt="" width="513" height="513" />
+                            <span class="thumb_overlay novi-background">
+								<span class="thumb_cnt">
+									<span class="thumb-icon novi-icon fl-line-ui-heart369"></span>
+									<span>Variety of Programs</span>
+								</span>
+							</span>
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <a class="thumb" href="{{ asset("front/images/gallery-04_original.jpg") }}" data-lightgallery="item">
+                            <img src="{{ asset("front/images/gallery-04-513x513.jpg") }}" alt="" width="513" height="513" />
+                            <span class="thumb_overlay novi-background">
+								<span class="thumb_cnt">
+									<span class="thumb-icon novi-icon fl-line-ui-heart369"></span>
+									<span>Full Accreditation</span>
+								</span>
+							</span>
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-md-3"><a class="thumb" href="{{ asset("front/images/gallery-05_original.jpg") }}" data-lightgallery="item"><img src="{{ asset("front/images/gallery-05-513x513.jpg") }}" alt="" width="513" height="513" /><span class="thumb_overlay novi-background"><span class="thumb_cnt"><span class="thumb-icon novi-icon fl-line-ui-heart369"></span><span>Children Development</span></span></span></a>
+                    </div>
+                    <div class="col-sm-6 col-md-3"><a class="thumb" href="{{ asset("front/images/gallery-06_original.jpg") }}" data-lightgallery="item"><img src="{{ asset("front/images/gallery-06-513x513.jpg") }}" alt="" width="513" height="513" /><span class="thumb_overlay novi-background"><span class="thumb_cnt"><span class="thumb-icon novi-icon fl-line-ui-heart369"></span><span>Working with Parents</span></span></span></a>
+                    </div>
+                    <div class="col-sm-6 col-md-3"><a class="thumb" href="{{ asset("front/images/gallery-07_original.jpg") }}" data-lightgallery="item"><img src="{{ asset("front/images/gallery-07-513x513.jpg") }}" alt="" width="513" height="513" /><span class="thumb_overlay novi-background"><span class="thumb_cnt"><span class="thumb-icon novi-icon fl-line-ui-heart369"></span><span>Annual Summer Activities</span></span></span></a>
+                    </div>
+                    <div class="col-sm-6 col-md-3"><a class="thumb" href="{{ asset("front/images/gallery-08_original.jpg") }}" data-lightgallery="item"><img src="{{ asset("front/images/gallery-08-513x513.jpg") }}" alt="" width="513" height="513" /><span class="thumb_overlay novi-background"><span class="thumb_cnt"><span class="thumb-icon novi-icon fl-line-ui-heart369"></span><span>Best Educational Resources</span></span></span></a>
+                    </div>
                 @endif
             </div>
         </div>
@@ -383,328 +408,96 @@
                     @foreach($staff as $staff_item)
                         <div class="col-sm-6 col-md-4">
                             <div class="box-bordered">
-                                <img src="{{ asset("storage/staff/".$staff_item->photo) }}" alt="" width="100" height="100"/>
+                                <img src="{{ asset("storage/staff/".$staff_item->photo) }}" alt="" width="100" height="100" />
                                 <h3>{{ $staff_item->translate($locale)->name }}</h3>
                                 <p>{!! $staff_item->translate($locale)->description !!}</p>
                                 @if(isset($staff_item->contact))
-                                <a href="mailto:#">{{ $staff_item->contact }}</a>
+                                    <a href="mailto:#">{{ $staff_item->contact }}</a>
                                 @endif
                             </div>
                         </div>
                     @endforeach
                 @else
-                <div class="col-sm-6 col-md-4">
-                    <div class="box-bordered"><img src="{{ asset("front/images/team-1-100x100.jpg") }}" alt="" width="100" height="100"/>
-                        <h3>David Austin</h3>
-                        <p>Lorem ipsum dolor sit amet consectet molestie lacus. Aenean nonummye.</p><a href="mailto:#">info@demolink.org</a>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="box-bordered"><img src="{{ asset("front/images/team-1-100x100.jpg") }}" alt="" width="100" height="100" />
+                            <h3>David Austin</h3>
+                            <p>Lorem ipsum dolor sit amet consectet molestie lacus. Aenean nonummye.</p><a href="mailto:#">info@demolink.org</a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="box-bordered"><img src="{{ asset("front/images/team-2-100x100.jpg") }}" alt="" width="100" height="100"/>
-                        <h3>Eva Adamson</h3>
-                        <p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem.</p><a href="mailto:#">info@demolink.org</a>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="box-bordered"><img src="{{ asset("front/images/team-2-100x100.jpg") }}" alt="" width="100" height="100" />
+                            <h3>Eva Adamson</h3>
+                            <p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem.</p><a href="mailto:#">info@demolink.org</a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="box-bordered"><img src="{{ asset("front/images/team-3-100x100.jpg") }}" alt="" width="100" height="100"/>
-                        <h3>Thomas Bishop</h3>
-                        <p>Aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos.</p><a href="mailto:#">info@demolink.org</a>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="box-bordered"><img src="{{ asset("front/images/team-3-100x100.jpg") }}" alt="" width="100" height="100" />
+                            <h3>Thomas Bishop</h3>
+                            <p>Aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos.</p><a href="mailto:#">info@demolink.org</a>
+                        </div>
                     </div>
-                </div>
                 @endif
             </div>
         </div>
     </section>
-    <section class="price-section" id="Price">
+    <section class="well-4 well-inset-1 price-section" id="Price">
         <h2>Price List</h2>
-        <div class="price-content">
-          <div id="mi-slider" class="mi-slider">
-					<ul>
-						<li class="price-wrap" id="price-wrap">
-
-                <div class="price-block">
-                    <div class="price-title">
-                        <h1>baby spa</h1>
-                    </div>
-                    <div class="price-amount">
-                        <strong>124 000 UZS</strong>
-                        <small>per month</small>
-                    </div>
-                    <div class="price-description">
-                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
-                    </div>
-                    <div class="price-button">
-                        <button id="price-btn" type="button" >get started</button>
-                    </div>
+        <div class="price-container owl-carousel" data-items="3" data-dots="false" data-nav="true" data-stage-padding="0" data-loop="false" data-margin="30" data-mouse-drag="true">
+            <div class="item price-block">
+                <h3 class="price-main-title">Baby Spa</h3>
+                <h2 class="price-title">Массаж Общий</h2>
+                <div class="price-amount">
+                    <span>1 000 000 UZS</span>
+                    <span>в месяц</span>
                 </div>
-            </li>
-            <li class="price-wrap" id="price-wrap">
-
-                <div class="price-block">
-                    <div class="price-title">
-                        <h1>Массаж общий</h1>
-                    </div>
-                    <div class="price-amount">
-                        <strong>50 000 UZS  </strong>
-                        <small>per month</small>
-                    </div>
-                    <div class="price-description">
-                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
-                    </div>
-                    <div class="price-button">
-                        <button id="price-btn" type="button" >get started</button>
-                    </div>
+                <div class="price-button-block">
+                    <button type="button" class="price-button">Оставить заявку</button>
                 </div>
-            </li>
-            <li class="price-wrap" id="price-wrap">
-
-                <div class="price-block">
-                    <div class="price-title">
-                        <h1>baby spa</h1>
-                    </div>
-                    <div class="price-amount">
-                        <strong>$ 54</strong>
-                        <small>per month</small>
-                    </div>
-                    <div class="price-description">
-                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
-                    </div>
-                    <div class="price-button">
-                        <button id="price-btn" type="button" >get started</button>
-                    </div>
+            </div>
+            <div class="item price-block">
+                <h3 class="price-main-title">Baby Spa</h3>
+                <h2 class="price-title">Массаж Общий</h2>
+                <div class="price-amount">
+                    <span>1 000 000 UZS</span>
+                    <span>в месяц</span>
                 </div>
-            </li>
-            <li class="price-wrap" id="price-wrap">
-
-                <div class="price-block">
-                    <div class="price-title">
-                        <h1>Массаж общий</h1>
-                    </div>
-                    <div class="price-amount">
-                        <strong>50 000 UZS  </strong>
-                        <small>per month</small>
-                    </div>
-                    <div class="price-description">
-                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
-                    </div>
-                    <div class="price-button">
-                        <button id="price-btn" type="button" >get started</button>
-                    </div>
+                <div class="price-button-block">
+                    <button type="button" class="price-button">Оставить заявку</button>
                 </div>
-            </li>
-            <li class="price-wrap" id="price-wrap">
-
-                <div class="price-block">
-                    <div class="price-title">
-                        <h1>baby spa</h1>
-                    </div>
-                    <div class="price-amount">
-                        <strong>$ 54</strong>
-                        <small>per month</small>
-                    </div>
-                    <div class="price-description">
-                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
-                    </div>
-                    <div class="price-button">
-                        <button id="price-btn" type="button" >get started</button>
-                    </div>
+            </div>
+            <div class="item price-block">
+                <h3 class="price-main-title">Baby Spa</h3>
+                <h2 class="price-title">Массаж Общий</h2>
+                <div class="price-amount">
+                    <span>1 000 000 UZS</span>
+                    <span>в месяц</span>
                 </div>
-            </li>
-            <li class="price-wrap" id="price-wrap">
-
-                <div class="price-block">
-                    <div class="price-title">
-                        <h1>baby spa</h1>
-                    </div>
-                    <div class="price-amount">
-                        <strong>$ 54</strong>
-                        <small>per month</small>
-                    </div>
-                    <div class="price-description">
-                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
-                    </div>
-                    <div class="price-button">
-                        <button id="price-btn" type="button" >get started</button>
-                    </div>
+                <div class="price-button-block">
+                    <button type="button" class="price-button">Оставить заявку</button>
                 </div>
-            </li>
-					</ul>
-					<ul>
-            <li class="price-wrap" id="price-wrap">
-
-                <div class="price-block">
-                    <div class="price-title">
-                        <h1>baby spa</h1>
-                    </div>
-                    <div class="price-amount">
-                        <strong>$ 54</strong>
-                        <small>per month</small>
-                    </div>
-                    <div class="price-description">
-                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
-                    </div>
-                    <div class="price-button">
-                        <button id="price-btn" type="button" >get started</button>
-                    </div>
+            </div>
+            <div class="item price-block">
+                <h3 class="price-main-title">Baby Spa</h3>
+                <h2 class="price-title">Массаж Общий</h2>
+                <div class="price-amount">
+                    <span>1 000 000 UZS</span>
+                    <span>в месяц</span>
                 </div>
-            </li>
-            <li class="price-wrap" id="price-wrap">
-
-                <div class="price-block">
-                    <div class="price-title">
-                        <h1>baby spa</h1>
-                    </div>
-                    <div class="price-amount">
-                        <strong>$ 54</strong>
-                        <small>per month</small>
-                    </div>
-                    <div class="price-description">
-                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
-                    </div>
-                    <div class="price-button">
-                        <button id="price-btn" type="button" >get started</button>
-                    </div>
+                <div class="price-button-block">
+                    <button type="button" class="price-button">Оставить заявку</button>
                 </div>
-            </li>
-            <li class="price-wrap" id="price-wrap">
-
-                <div class="price-block">
-                    <div class="price-title">
-                        <h1>baby spa</h1>
-                    </div>
-                    <div class="price-amount">
-                        <strong>$ 54</strong>
-                        <small>per month</small>
-                    </div>
-                    <div class="price-description">
-                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
-                    </div>
-                    <div class="price-button">
-                        <button id="price-btn" type="button" >get started</button>
-                    </div>
+            </div>
+            <div class="item price-block">
+                <h3 class="price-main-title">Baby Spa</h3>
+                <h2 class="price-title">Массаж Общий</h2>
+                <div class="price-amount">
+                    <span>1 000 000 UZS</span>
+                    <span>в месяц</span>
                 </div>
-            </li>
-					</ul>
-					<ul>
-            <li class="price-wrap" id="price-wrap">
-
-                <div class="price-block">
-                    <div class="price-title">
-                        <h1>baby spa</h1>
-                    </div>
-                    <div class="price-amount">
-                        <strong>$ 54</strong>
-                        <small>per month</small>
-                    </div>
-                    <div class="price-description">
-                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
-                    </div>
-                    <div class="price-button">
-                        <button id="price-btn" type="button" >get started</button>
-                    </div>
+                <div class="price-button-block">
+                    <button type="button" class="price-button">Оставить заявку</button>
                 </div>
-            </li>
-            <li class="price-wrap" id="price-wrap">
-
-                <div class="price-block">
-                    <div class="price-title">
-                        <h1>baby spa</h1>
-                    </div>
-                    <div class="price-amount">
-                        <strong>$ 54</strong>
-                        <small>per month</small>
-                    </div>
-                    <div class="price-description">
-                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
-                    </div>
-                    <div class="price-button">
-                        <button id="price-btn" type="button" >get started</button>
-                    </div>
-                </div>
-            </li>
-            <li class="price-wrap" id="price-wrap">
-
-                <div class="price-block">
-                    <div class="price-title">
-                        <h1>baby spa</h1>
-                    </div>
-                    <div class="price-amount">
-                        <strong>$ 54</strong>
-                        <small>per month</small>
-                    </div>
-                    <div class="price-description">
-                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
-                    </div>
-                    <div class="price-button">
-                        <button id="price-btn" type="button" >get started</button>
-                    </div>
-                </div>
-            </li>
-					</ul>
-					<ul>
-            <li class="price-wrap" id="price-wrap">
-
-                <div class="price-block">
-                    <div class="price-title">
-                        <h1>baby spa</h1>
-                    </div>
-                    <div class="price-amount">
-                        <strong>$ 54</strong>
-                        <small>per month</small>
-                    </div>
-                    <div class="price-description">
-                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
-                    </div>
-                    <div class="price-button">
-                        <button id="price-btn" type="button" >get started</button>
-                    </div>
-                </div>
-            </li>
-            <li class="price-wrap" id="price-wrap">
-
-                <div class="price-block">
-                    <div class="price-title">
-                        <h1>baby spa</h1>
-                    </div>
-                    <div class="price-amount">
-                        <strong>$ 54</strong>
-                        <small>per month</small>
-                    </div>
-                    <div class="price-description">
-                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
-                    </div>
-                    <div class="price-button">
-                        <button id="price-btn" type="button" >get started</button>
-                    </div>
-                </div>
-            </li>
-            <li class="price-wrap" id="price-wrap">
-
-                <div class="price-block">
-                    <div class="price-title">
-                        <h1>baby spa</h1>
-                    </div>
-                    <div class="price-amount">
-                        <strong>$ 54</strong>
-                        <small>per month</small>
-                    </div>
-                    <div class="price-description">
-                        <p>Hate dog flop over and missing until dinner time sun bathe make muffins stand in front of the computer screen</p>
-                    </div>
-                    <div class="price-button">
-                        <button id="price-btn" type="button" >get started</button>
-                    </div>
-                </div>
-            </li>
-					</ul>
-					<nav>
-						<a href="#">Shoes</a>
-						<a href="#">Accessories</a>
-						<a href="#">Watches</a>
-						<a href="#">Bags</a>
-					</nav>
-				</div>
-
+            </div>
         </div>
     </section>
     <section>
@@ -792,7 +585,7 @@
                     </div>
                 </div>
             </section>
-            <div class="copyright"><span>Babby island</span><span>&nbsp;&copy;&nbsp;</span><span class="copyright-year"></span><span>.&nbsp;</span><a href="privacy-policy.html">Privacy Policy</a><span>. Designed&nbsp;by&nbsp;<a href="https://codestudio.uz" target="_blank" >CodeStudio</a></span></div>
+            <div class="copyright"><span>Babby island</span><span>&nbsp;&copy;&nbsp;</span><span class="copyright-year"></span><span>.&nbsp;</span><a href="privacy-policy.html">Privacy Policy</a><span>. Designed&nbsp;by&nbsp;<a href="https://codestudio.uz" target="_blank">CodeStudio</a></span></div>
         </div>
     </footer>
 </div>
@@ -800,23 +593,21 @@
 <div class="snackbars" id="form-output-global"></div>
 
 <div class="Modal-window" id="modal-video">
-<div class="cont-mod-video">
-  <span id="close" class="closes">&times</span>
-<iframe id="youtube" width="100%" height="100%" src="https://www.youtube.com/embed/boY6FvdnrBQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+    <div class="cont-mod-video">
+        <span id="close" class="closes">&times</span>
+        <iframe id="youtube" width="100%" height="100%" src="https://www.youtube.com/embed/boY6FvdnrBQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
 </div>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="{{ asset("front/js/core.min.js") }}"></script>
 <script src="{{ asset("front/js/script.js") }}"></script>
 <script src="{{ asset("front/js/myscript.js") }}"></script>
-<script src="{{ asset("front/js/jquery.catslider.js") }}"></script>
 <script>
-  $(function() {
-
-    $( '#mi-slider' ).catslider();
-
-  });
+    $(document).ready(function () {
+       $('.price-container').owlCarousel();
+    });
 </script>
 </body>
+
 </html>

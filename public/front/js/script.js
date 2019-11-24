@@ -468,7 +468,7 @@
 
 					carousel.on("translate.owl.carousel", function (event) {
 						customPag.find(".active").removeClass("active");
-						customPag.find("[data-owl-item='" + event.item.index + "']").addClass("active")
+						customPag.find("[data-owl-item='" + event.item.index + "']").addClass("active");
 					});
 				});
 			}
@@ -1167,34 +1167,3 @@
 	});
 }());
 
-
-//new price
-
-
-
-
-$(document).ready(function () {
-	$('.price-wrap').on('mouseover', function () {
-		console.log(25);
-        var price_list = this;
-        var price_botton = $('button',this);
-        price_list.style.backgroundColor = 'rgb(200,235,100)';
-        price_list.style.color = '#fff';
-        price_botton.css('background-color', '#fff');
-        price_botton.css('color', '#000');
-        price_list.style.height='70vh';
-        price_list.style.transition='.4s';
-        price_botton.css('transition', '.4s');
-    });
-    $('.price-wrap').on('mouseout', function () {
-        var price_list = this;
-        var price_botton = $('button',this);
-        price_list.style.backgroundColor = '#fff';
-        price_list.style.color = '#000';
-        price_botton.css('background-color', 'rgb(100,200,235)');
-        price_botton.css('color', '#fff');
-        price_list.style.height='60vh';
-        price_list.style.transition='.4s';
-        price_botton.css('transition', '.4s');
-	});
-});
