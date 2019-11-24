@@ -51,8 +51,8 @@
     margin: auto;
 }
 .price-block {
-    width: 30%;
-    height: 80%;
+    width: 90%;
+    height: 70vh;
     border-radius: 10px;
     background-image: url('../images/2.png');
     background-size: contain;
@@ -60,6 +60,7 @@
     background-color: #fff;
     background-position-y: 85px;
     background-position-x: -20px;
+    margin-left: 15px;
 }
 .price-main-title {
     font-size: 18px;
@@ -94,6 +95,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 20%;
 }
 .price-button, .price-button:focus {
     width: 50%;

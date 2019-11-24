@@ -9,6 +9,11 @@
     <link rel="shortcut icon" href="{{ asset("front/images/favicon.ico") }}" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:400,300%7CRoboto+Condensed:400,700,300">
     <link rel="stylesheet" href="{{ asset("front/css/bootstrap.css") }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset("front/slick/slick/slick.css") }}"/>
+    // Add the new slick-theme.css if you want the default styling
+    <link rel="stylesheet" type="text/css" href="{{ asset("front/slick/slick/slick-theme.css") }}"/>
+
     <link rel="stylesheet" href="{{ asset("front/css/fonts.css") }}">
     <link rel="stylesheet" href="{{ asset("front/css/myCustom.css") }}">
     <link rel="stylesheet" href="{{ asset("front/css/style.css") }}">
@@ -442,7 +447,7 @@ CONTENT
     </section>
     <section class="well-4 well-inset-1 price-section" id="Price">
         <h2>Price List</h2>
-        <div class="price-container owl-carousel" data-items="3" data-dots="false" data-nav="true" data-stage-padding="0" data-loop="false" data-margin="30" data-mouse-drag="true">
+        <div class="price-container my-slick-slider" data-items="3" data-dots="false" data-nav="true" data-stage-padding="0" data-loop="false" data-margin="30" data-mouse-drag="true">
             <div class="item price-block">
                 <h3 class="price-main-title">Baby Spa</h3>
                 <h2 class="price-title">Массаж Общий</h2>
@@ -603,10 +608,16 @@ CONTENT
 <script src="{{ asset("front/js/core.min.js") }}"></script>
 <script src="{{ asset("front/js/script.js") }}"></script>
 <script src="{{ asset("front/js/myscript.js") }}"></script>
+<script type="text/javascript" src="{{ asset("front/slick/slick/slick.min.js") }}"></script>
 <script>
-    $(document).ready(function () {
-       $('.price-container').owlCarousel();
-    });
+$(document).ready(function(){
+$('.my-slick-slider').slick({
+  infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    dots:true
+});
+});
 </script>
 </body>
 
