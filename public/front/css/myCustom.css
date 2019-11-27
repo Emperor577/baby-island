@@ -52,7 +52,7 @@
 }
 .price-block {
     width: 90%;
-    height: 70vh;
+    height: auto;
     border-radius: 10px;
     background-image: url('../images/2.png');
     background-size: contain;

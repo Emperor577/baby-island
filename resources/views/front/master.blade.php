@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="{{ asset("front/css/bootstrap.css") }}">
 
     <link rel="stylesheet" type="text/css" href="{{ asset("front/slick/slick/slick.css") }}"/>
-    // Add the new slick-theme.css if you want the default styling
     <link rel="stylesheet" type="text/css" href="{{ asset("front/slick/slick/slick-theme.css") }}"/>
 
     <link rel="stylesheet" href="{{ asset("front/css/fonts.css") }}">
@@ -615,7 +614,33 @@ $('.my-slick-slider').slick({
   infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    dots:true
+    dots:true,
+    responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+    
+  ]
 });
 });
 </script>
