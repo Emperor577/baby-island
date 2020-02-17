@@ -96,14 +96,14 @@
                                         </li>
                                         <li class="rd-nav-item">
                                             @if($locale === 'ru')
-                                                <a class="rd-nav-link" href="{{ route('locale', " ru") }}">Ру</a>
+                                                <a class="rd-nav-link" href="{{ route('locale', "ru") }}">Ру</a>
                                                 <ul class="rd-menu rd-navbar-dropdown">
-                                                    <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{{ route('locale', " uz") }}">Uz</a></li>
+                                                    <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{{ route('locale', "uz") }}">Uz</a></li>
                                                 </ul>
                                             @elseif($locale === 'uz')
-                                                <a class="rd-nav-link" href="{{ route('locale', " uz") }}">Uz</a>
+                                                <a class="rd-nav-link" href="{{ route('locale', "uz") }}">Uz</a>
                                                 <ul class="rd-menu rd-navbar-dropdown">
-                                                    <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{{ route('locale', " ru") }}">Ру</a></li>
+                                                    <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{{ route('locale', "ru") }}">Ру</a></li>
                                                 </ul>
                                             @endif
                                         </li>
@@ -639,7 +639,7 @@ $('.my-slick-slider').slick({
         slidesToScroll: 1
       }
     }
-    
+
   ]
 });
 });
