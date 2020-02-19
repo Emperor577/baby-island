@@ -433,7 +433,6 @@ CONTENT
                                     <h2 class="price-title">{{ $key }}</h2>
                                     <div class="price-amount">
                                         <span>{{ $value }} UZS</span>
-                                        <span>в месяц</span>
                                     </div>
                                 </div>
                             @endforeach
