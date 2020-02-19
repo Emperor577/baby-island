@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
 
 Route::get('/', 'Page\\MasterController@index')->name('home');
+Route::post('/contact', 'Page\\MasterController@contactForm')->name('contact');
 Route::get('/locale/{locale}', function ($locale){
 
     App::setLocale($locale);
@@ -50,6 +51,16 @@ Route::group([
     });
 
     Route::group([
+        'prefix' => 'message',
+        'namespace' => 'Dashboard',
+        'as' => 'message.'
+    ], function () {
+        Route::get('/', 'MessageController@index')->name('index');
+        Route::get('/view/{id}', 'MessageController@show')->name('view');
+        Route::delete('/delete/{id}', 'MessageController@destroy')->name('delete');
+    });
+
+    Route::group([
         'prefix' => 'about-us',
         'namespace' => 'Dashboard',
         'as' => 'about-us.'
@@ -61,6 +72,20 @@ Route::group([
         Route::put('/update/{id}', 'AboutUsController@update')->name('update');
         Route::delete('/delete/{id}', 'AboutUsController@destroy')->name('delete');
         Route::delete('/edit/image/delete/{id}', 'AboutUsController@imageDestroy');
+    });
+
+    Route::group([
+        'prefix' => 'service',
+        'namespace' => 'Dashboard',
+        'as' => 'service.'
+    ], function () {
+        Route::get('/', 'ServiceController@index')->name('index');
+        Route::get('/create', 'ServiceController@create')->name('create');
+        Route::post('/store', 'ServiceController@store')->name('store');
+        Route::get('/edit/{id}', 'ServiceController@edit')->name('edit');
+        Route::put('/update/{id}', 'ServiceController@update')->name('update');
+        Route::delete('/delete/{id}', 'ServiceController@destroy')->name('delete');
+        Route::delete('/edit/image/delete/{id}', 'ServiceController@imageDestroy');
     });
 
     Route::group([

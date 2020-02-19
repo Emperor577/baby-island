@@ -8,32 +8,10 @@
     height: 100%;
   }
 
-  .price-content{
-    flex-direction: column;
-    justify-content: space-between;
-    align-content: space-between;
-  }
 
-  .price-1{
-    width: 100%;
-    height: 50%;
-    padding: 20px 0;
-  }
 
-  .price-2{
-    width: 100%;
-    height: 50%;
-    padding: 20px 0;
-    margin-top: 25px;
-  }
 
-  .price-text{
-    line-height: 24px;
-  }
 
-    .price-content p{
-      font-size: 12px;
-    }
 }
 @media screen and (min-width:375px) and (max-width:450px) {
   .bg-pattern .button {
@@ -71,6 +49,7 @@
     }
 }
 @media screen and (min-width:450px) and (max-width:550px) {
+
   .bg-pattern .button {
       color: #ec8889;
       border-color: #ed8a8a;
@@ -106,6 +85,7 @@
     }
 }
 @media screen and (min-width:550px) and (max-width:575px) {
+
   .bg-pattern .button {
       color: #ec8889;
       border-color: #ed8a8a;
@@ -145,6 +125,7 @@
     }
 }
 @media screen and (min-width:575px) and (max-width:768px) {
+
   .bg-pattern .button {
       color: #ec8889;
       border-color: #ed8a8a;
