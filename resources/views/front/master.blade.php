@@ -215,7 +215,7 @@ CONTENT
 
     <section class="well-4 bg-default novi-background bg-cover uslugi" id="uslugi">
         <div class="container center">
-            <h2>Наши услуги</h2>
+            <h2>@lang('translate.service')</h2>
             <hr>
             <h4>Read the latest news and updates from Happy Kids.</h4>
             <div class="row row-30 offset-custom-2">
@@ -421,19 +421,22 @@ CONTENT
         </div>
     </section>
     <section class="well-4 well-inset-1 price-section" id="Price">
-        <h2>Price List</h2>
+        <h2>@lang('translate.price')</h2>
         <div class="price-container my-slick-slider" data-items="3" data-dots="false" data-nav="true" data-stage-padding="0" data-loop="false" data-margin="30" data-mouse-drag="true">
             @if(isset($prices))
                 @foreach($prices as $price)
                     <div class="item price-block">
-                        <h3 class="price-main-title">Baby Spa</h3>
-                        <h2 class="price-title">Массаж Общий</h2>
-                        <div class="price-amount">
-                            <span>1 000 000 UZS</span>
-                            <span>в месяц</span>
-                        </div>
-                        <div class="price-button-block">
-                            <button type="button" class="price-button">Оставить заявку</button>
+                        <h3 class="price-main-title">{{ $price->translate($locale)->title }}</h3>
+                        <div class="price-main-body">
+                            @foreach (json_decode($price->translate($locale)->price, true) as $key => $value)
+                                <div class="price-item">
+                                    <h2 class="price-title">{{ $key }}</h2>
+                                    <div class="price-amount">
+                                        <span>{{ $value }} UZS</span>
+                                        <span>в месяц</span>
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 @endforeach

@@ -38,7 +38,6 @@ class MasterController extends Controller
         $staff = Staff::all();
         $prices= Price::all();
         $services = Service::all();
-
         return view('front.master',
             compact('sliders','locale', 'about_us', 'testimonials','gallery', 'staff', 'prices', 'services'));
     }

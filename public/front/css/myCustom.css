@@ -54,7 +54,7 @@
 }
 .price-block {
     width: 90%;
-    height: auto;
+    height: 30em;
     border-radius: 10px;
     background-image: url('../images/2.png');
     background-size: contain;
@@ -64,32 +64,44 @@
     background-position-x: -20px;
     margin-left: 15px;
 }
+.price-main-body {
+    height: 70%;
+    width: 100%;
+    overflow-y: scroll;
+}
 .price-main-title {
     font-size: 18px;
     font-weight: 600;
     text-align: center;
     margin-top: .5rem;
 }
-.price-title {
-    font-size: 25px;
+.price-item {
+    width: 80%;
+    margin: 1em auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.price-item .price-title {
+    font-size: 15px;
     font-weight: 600;
-    line-height: 1rem;
-    text-align: center;
+    text-align: left;
     margin: 0 !important;
 }
-.price-amount {
-    font-size: 31px;
+.price-item .price-amount {
+    font-size: 15px;
     font-weight: 600;
-    text-align: center;
+    text-align: right;
+    width: 50%;
     display: flex;
     flex-direction: column;
     height: 25%;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
 }
 .price-amount span:last-child {
     color: grey;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .price-button-block {
@@ -97,7 +109,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20%;
+    margin-top: 5%;
 }
 .price-button, .price-button:focus {
     width: 50%;
