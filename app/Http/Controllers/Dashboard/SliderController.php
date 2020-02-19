@@ -6,14 +6,16 @@ use App\Models\Slider;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\Slider\Contracts\SliderService as SliderServiceInterface;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\ValidationException;
 
 class SliderController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -24,7 +26,7 @@ class SliderController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -34,9 +36,10 @@ class SliderController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
      * @param SliderServiceInterface $slider
-     * @return \Illuminate\Http\Response
+     * @return Response
+     * @throws ValidationException
      */
     public function store(Request $request, SliderServiceInterface $slider)
     {
@@ -55,7 +58,7 @@ class SliderController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show($id)
     {
@@ -66,7 +69,7 @@ class SliderController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit($id)
     {
@@ -76,10 +79,11 @@ class SliderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
      * @param $id
      * @param SliderServiceInterface $slider
-     * @return \Illuminate\Http\Response
+     * @return Response
+     * @throws ValidationException
      * @internal param int $id
      */
     public function update(Request $request, $id,  SliderServiceInterface $slider)
@@ -99,7 +103,7 @@ class SliderController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy($id)
     {

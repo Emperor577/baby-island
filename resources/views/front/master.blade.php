@@ -96,12 +96,12 @@
                                         </li>
                                         <li class="rd-nav-item">
                                             @if($locale === 'ru')
-                                                <a class="rd-nav-link" href="{{ route('locale', "ru") }}">Ру</a>
+                                                <a class="rd-nav-link" href="#" onclick="event.preventDefault()">Ру</a>
                                                 <ul class="rd-menu rd-navbar-dropdown">
                                                     <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{{ route('locale', "uz") }}">Uz</a></li>
                                                 </ul>
                                             @elseif($locale === 'uz')
-                                                <a class="rd-nav-link" href="{{ route('locale', "uz") }}">Uz</a>
+                                                <a class="rd-nav-link" href="#" onclick="event.preventDefault()">Uz</a>
                                                 <ul class="rd-menu rd-navbar-dropdown">
                                                     <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{{ route('locale', "ru") }}">Ру</a></li>
                                                 </ul>
@@ -219,42 +219,18 @@ CONTENT
             <hr>
             <h4>Read the latest news and updates from Happy Kids.</h4>
             <div class="row row-30 offset-custom-2">
-                <article class="col-sm-6 col-md-4"><a class="post" href="blog-post.html"><img src="{{ asset("front/images/home-7-370x453.jpg") }}" alt="" width="370" height="453" />
-                        <div class="post_cnt">
-                            <h3>How Testing Buoyancy Can Build Babies’ Skills</h3>
-                            <time datetime="2015-04-14">April 10, 2018</time>
-                        </div>
-                    </a></article>
-                <article class="col-sm-6 col-md-4"><a class="post" href="blog-post.html"><img src="{{ asset("front/images/home-8-370x453.jpg") }}" alt="" width="370" height="453" />
-                        <div class="post_cnt">
-                            <h3>Preschool Science Activities Make Kids Independent Thinkers</h3>
-                            <time datetime="2015-04-14">April 12, 2018</time>
-                        </div>
-                    </a></article>
-                <article class="col-sm-6 col-md-4"><a class="post" href="blog-post.html"><img src="{{ asset("front/images/home-9-370x453.jpg") }}" alt="" width="370" height="453" />
-                        <div class="post_cnt">
-                            <h3>Sensory Counting Games for Kids Blend Fun and Education</h3>
-                            <time datetime="2015-04-14">April 14, 2018</time>
-                        </div>
-                    </a></article>
-                <article class="col-sm-6 col-md-4"><a class="post" href="blog-post.html"><img src="{{ asset("front/images/home-10-370x453.jpg") }}" alt="" width="370" height="453" />
-                        <div class="post_cnt">
-                            <h3>The Road to Positive Parenting: Alternatives to "No"</h3>
-                            <time datetime="2015-04-14">April 16, 2018</time>
-                        </div>
-                    </a></article>
-                <article class="col-sm-6 col-md-4"><a class="post" href="blog-post.html"><img src="{{ asset("front/images/home-11-370x453.jpg") }}" alt="" width="370" height="453" />
-                        <div class="post_cnt">
-                            <h3>Teach Good Decision-Making Skills and Say Goodbye to Power Struggles</h3>
-                            <time datetime="2015-04-14">April 18, 2018</time>
-                        </div>
-                    </a></article>
-                <article class="col-sm-6 col-md-4"><a class="post" href="blog-post.html"><img src="{{ asset("front/images/home-12-370x453.jpg") }}" alt="" width="370" height="453" />
-                        <div class="post_cnt">
-                            <h3>Raise a Grateful Child and Watch Them Become a Caring Adult</h3>
-                            <time datetime="2015-04-14">April 20, 2018</time>
-                        </div>
-                    </a></article>
+                @if($services)
+                    @foreach($services as $service)
+                        <article class="col-sm-6 col-md-4">
+                            <a class="post" href="" onclick="event.preventDefault()">
+                                <img src="{{ asset("storage/service/".$service->photo) }}" alt="" width="370" height="453" />
+                                <div class="post_cnt">
+                                    <h3>{{ $service->translate($locale)->title }}</h3>
+                                </div>
+                            </a>
+                        </article>
+                    @endforeach
+                @endif
             </div>
         </div>
     </section>
@@ -447,61 +423,66 @@ CONTENT
     <section class="well-4 well-inset-1 price-section" id="Price">
         <h2>Price List</h2>
         <div class="price-container my-slick-slider" data-items="3" data-dots="false" data-nav="true" data-stage-padding="0" data-loop="false" data-margin="30" data-mouse-drag="true">
-            <div class="item price-block">
-                <h3 class="price-main-title">Baby Spa</h3>
-                <h2 class="price-title">Массаж Общий</h2>
-                <div class="price-amount">
-                    <span>1 000 000 UZS</span>
-                    <span>в месяц</span>
-                </div>
-                <div class="price-button-block">
-                    <button type="button" class="price-button">Оставить заявку</button>
-                </div>
-            </div>
-            <div class="item price-block">
-                <h3 class="price-main-title">Baby Spa</h3>
-                <h2 class="price-title">Массаж Общий</h2>
-                <div class="price-amount">
-                    <span>1 000 000 UZS</span>
-                    <span>в месяц</span>
-                </div>
-                <div class="price-button-block">
-                    <button type="button" class="price-button">Оставить заявку</button>
-                </div>
-            </div>
-            <div class="item price-block">
-                <h3 class="price-main-title">Baby Spa</h3>
-                <h2 class="price-title">Массаж Общий</h2>
-                <div class="price-amount">
-                    <span>1 000 000 UZS</span>
-                    <span>в месяц</span>
-                </div>
-                <div class="price-button-block">
-                    <button type="button" class="price-button">Оставить заявку</button>
-                </div>
-            </div>
-            <div class="item price-block">
-                <h3 class="price-main-title">Baby Spa</h3>
-                <h2 class="price-title">Массаж Общий</h2>
-                <div class="price-amount">
-                    <span>1 000 000 UZS</span>
-                    <span>в месяц</span>
-                </div>
-                <div class="price-button-block">
-                    <button type="button" class="price-button">Оставить заявку</button>
-                </div>
-            </div>
-            <div class="item price-block">
-                <h3 class="price-main-title">Baby Spa</h3>
-                <h2 class="price-title">Массаж Общий</h2>
-                <div class="price-amount">
-                    <span>1 000 000 UZS</span>
-                    <span>в месяц</span>
-                </div>
-                <div class="price-button-block">
-                    <button type="button" class="price-button">Оставить заявку</button>
-                </div>
-            </div>
+            @if(isset($prices))
+                @foreach($prices as $price)
+                    <div class="item price-block">
+                        <h3 class="price-main-title">Baby Spa</h3>
+                        <h2 class="price-title">Массаж Общий</h2>
+                        <div class="price-amount">
+                            <span>1 000 000 UZS</span>
+                            <span>в месяц</span>
+                        </div>
+                        <div class="price-button-block">
+                            <button type="button" class="price-button">Оставить заявку</button>
+                        </div>
+                    </div>
+                @endforeach
+            @endif
+{{--            --}}
+{{--            <div class="item price-block">--}}
+{{--                <h3 class="price-main-title">Baby Spa</h3>--}}
+{{--                <h2 class="price-title">Массаж Общий</h2>--}}
+{{--                <div class="price-amount">--}}
+{{--                    <span>1 000 000 UZS</span>--}}
+{{--                    <span>в месяц</span>--}}
+{{--                </div>--}}
+{{--                <div class="price-button-block">--}}
+{{--                    <button type="button" class="price-button">Оставить заявку</button>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="item price-block">--}}
+{{--                <h3 class="price-main-title">Baby Spa</h3>--}}
+{{--                <h2 class="price-title">Массаж Общий</h2>--}}
+{{--                <div class="price-amount">--}}
+{{--                    <span>1 000 000 UZS</span>--}}
+{{--                    <span>в месяц</span>--}}
+{{--                </div>--}}
+{{--                <div class="price-button-block">--}}
+{{--                    <button type="button" class="price-button">Оставить заявку</button>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="item price-block">--}}
+{{--                <h3 class="price-main-title">Baby Spa</h3>--}}
+{{--                <h2 class="price-title">Массаж Общий</h2>--}}
+{{--                <div class="price-amount">--}}
+{{--                    <span>1 000 000 UZS</span>--}}
+{{--                    <span>в месяц</span>--}}
+{{--                </div>--}}
+{{--                <div class="price-button-block">--}}
+{{--                    <button type="button" class="price-button">Оставить заявку</button>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="item price-block">--}}
+{{--                <h3 class="price-main-title">Baby Spa</h3>--}}
+{{--                <h2 class="price-title">Массаж Общий</h2>--}}
+{{--                <div class="price-amount">--}}
+{{--                    <span>1 000 000 UZS</span>--}}
+{{--                    <span>в месяц</span>--}}
+{{--                </div>--}}
+{{--                <div class="price-button-block">--}}
+{{--                    <button type="button" class="price-button">Оставить заявку</button>--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
     </section>
     <section>
@@ -520,51 +501,52 @@ CONTENT
                 <div class="container">
                     <div class="row row-60 justify-content-between">
                         <div class="col-lg-6">
-                            <h2>Contact form</h2>
+                            <h2>@lang('translate.contact_form')</h2>
                             <hr>
                             <h4>Lorem ipsum dolor sit amet consectetuer adipisc</h4>
-                            <form class="rd-mailform text-left" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+                            <form class="text-left" method="post" action="{{ route('contact') }}">
+                                {{ csrf_field() }}
                                 <div class="row row-14 row-fix">
                                     <div class="col-sm-6">
                                         <div class="form-wrap">
-                                            <label class="form-label" for="contact-name-3">Name</label>
+                                            <label class="form-label" for="contact-name-3">@lang('translate.name')</label>
                                             <input class="form-input" id="contact-name-3" type="text" name="name" data-constraints="@Required">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-wrap">
-                                            <label class="form-label" for="contact-phone-3">Phone</label>
+                                            <label class="form-label" for="contact-phone-3">@lang('translate.phone')</label>
                                             <input class="form-input" id="contact-phone-3" type="text" name="phone" data-constraints="@Required @PhoneNumber">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-wrap">
-                                            <label class="form-label" for="contact-email-3">E-Mail</label>
+                                            <label class="form-label" for="contact-email-3">@lang('translate.email')</label>
                                             <input class="form-input" id="contact-email-3" type="email" name="email" data-constraints="@Required @Email">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-wrap">
-                                            <label class="form-label" for="contact-address-3">Address</label>
+                                            <label class="form-label" for="contact-address-3">@lang('translate.address')</label>
                                             <input class="form-input" id="contact-address-3" type="text" name="address">
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="form-wrap">
-                                            <label class="form-label" for="contact-message-3">Message</label>
+                                            <label class="form-label" for="contact-message-3">@lang('translate.message')</label>
                                             <textarea class="form-input" id="contact-message-3" name="message" data-constraints="@Required"></textarea>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-button group-sm text-center">
-                                    <button class="button button-2" type="submit">Send</button>
-                                    <button class="button button-default" type="reset">Clear</button>
+                                    <button class="button button-2" type="submit">@lang('translate.send')</button>
+                                    <button class="button button-default" type="reset">@lang('translate.clear')</button>
                                 </div>
                             </form>
                         </div>
                         <div class="col-lg-6 col-xl-5">
                             <div class="info-block">
-                                <h2>Contact information</h2>
+                                <h2>@lang('translate.contact_info')</h2>
                                 <hr>
                                 <p>You can contact us any way that is convenient for you. We are available 24/7 via fax or email. You can also visit us personally.</p>
                                 <address>9863 - 9867 Mill Road,<br> Cambridge, MG09 99HT</address>

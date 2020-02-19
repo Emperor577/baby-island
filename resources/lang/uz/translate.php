@@ -16,5 +16,14 @@ return [
     'contact' => 'Aloqa',
     'testimonials' => 'Muzojlar fikri',
     'test_desc' => 'Farzandlarimizning ota-onalari Baby Island haqida nima deyishgan.',
-    'staff' => 'Bizning xodimlar'
+    'staff' => 'Bizning xodimlar',
+    'contact_form' => 'QAYTA ALOQA FORMASI',
+    'contact_info' => 'BOSHQA MA\'LUMOT',
+    'send' => 'jo\'natish',
+    'clear' => 'o\'chirish',
+    'name' => 'Ism',
+    'phone' => 'Telefon',
+    'email' => 'Email',
+    'address' => 'Manzil',
+    'message' => 'Xabar'
 ];

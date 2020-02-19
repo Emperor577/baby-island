@@ -1,22 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Page;
+namespace App\Http\Controllers\Dashboard;
 
-use App\Models\AboutUs;
 use App\Models\ContactForm;
-use App\Models\Gallery;
-use App\Models\Price;
-use App\Models\Service;
-use App\Models\Slider;
-use App\Models\Staff;
-use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Session;
 
-class MasterController extends Controller
+class MessageController extends Controller
 {
+    public $path = 'admin.message.';
     /**
      * Display a listing of the resource.
      *
@@ -24,23 +16,8 @@ class MasterController extends Controller
      */
     public function index()
     {
-        $locale = Session::get('locale');
-
-        if($locale != null){
-            App::setLocale($locale);
-        }else{
-            $locale = App::getLocale();
-        }
-        $sliders = Slider::all();
-        $about_us = AboutUs::all();
-        $testimonials = Testimonial::all();
-        $gallery = Gallery::all();
-        $staff = Staff::all();
-        $prices= Price::all();
-        $services = Service::all();
-
-        return view('front.master',
-            compact('sliders','locale', 'about_us', 'testimonials','gallery', 'staff', 'prices', 'services'));
+        $messages = ContactForm::all();
+        return  view($this->path.'index', compact('messages'));
     }
 
     /**
@@ -72,7 +49,11 @@ class MasterController extends Controller
      */
     public function show($id)
     {
-        //
+        $message = ContactForm::find($id);
+        $message->is_seen = 1;
+        $message->save();
+
+        return  view($this->path.'view', compact('message'));
     }
 
     /**
@@ -106,18 +87,7 @@ class MasterController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
-
-    public function contactForm(Request $request)
-    {
-        $contact = new ContactForm();
-        $contact->name = $request['name'];
-        $contact->phone = $request['phone'];
-        $contact->email = $request['email'];
-        $contact->address = $request['address'];
-        $contact->message = $request['message'];
-        $contact->save();
+        ContactForm::destroy($id);
 
         return redirect()->back();
     }

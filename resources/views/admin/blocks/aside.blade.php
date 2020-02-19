@@ -24,6 +24,11 @@
                     'name' => 'О нас',
                 ]) @endcomponent
                 @component('admin.aside.menu-item',[
+                    'link' => route('admin.service.index'),
+                    'icon' => 'fa fa-cubes',
+                    'name' => 'Наши услуги',
+                ]) @endcomponent
+                @component('admin.aside.menu-item',[
                     'link' => route('admin.testimonial.index'),
                     'icon' => 'fa fa-commenting-o',
                     'name' => 'Отзывы'

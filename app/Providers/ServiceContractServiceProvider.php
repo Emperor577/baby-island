@@ -15,6 +15,8 @@ use App\Services\Staff\Contracts\StaffService as StaffServiceInterface;
 use App\Services\Staff\StaffService;
 use App\Services\Price\Contracts\PriceService as PriceServiceInterface;
 use App\Services\Price\PriceService;
+use App\Services\Service\ServiceService;
+use App\Services\Service\Contracts\ServiceService as ServiceServiceInterface;
 
 class ServiceContractServiceProvider extends ServiceProvider
 {
@@ -31,6 +33,7 @@ class ServiceContractServiceProvider extends ServiceProvider
         $this->app->bind(GalleryServiceInterface::class, GalleryService::class);
         $this->app->bind(StaffServiceInterface::class, StaffService::class);
         $this->app->bind(PriceServiceInterface::class, PriceService::class);
+        $this->app->bind(ServiceServiceInterface::class, ServiceService::class);
 
     }
 

@@ -30,19 +30,21 @@
 
         <div class="col-lg-3 col-md-6">
             <div class="card">
-                <div class="card-body">
-                    <div class="stat-widget-five">
-                        <div class="stat-icon dib flat-color-4">
-                            <i class="pe-7s-users"></i>
-                        </div>
-                        <div class="stat-content">
-                            <div class="text-left dib">
-                                <div class="stat-text"><span class="count">3435</span></div>
-                                <div class="stat-heading">Not Active Consumers</div>
+                <a href="{{ route('admin.message.index') }}">
+                    <div class="card-body">
+                        <div class="stat-widget-five">
+                            <div class="stat-icon dib flat-color-4">
+                                <i class="pe-7s-mail"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="text-left dib">
+                                    <div class="stat-text">@if(count($messages) > 0)<span class="count">{{ count($messages) }}</span>@else empty @endif</div>
+                                    <div class="stat-heading">New Messages</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
 
